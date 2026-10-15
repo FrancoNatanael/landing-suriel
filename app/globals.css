@@ -41,6 +41,10 @@
 
   /* Halo de WhatsApp (M12) */
   --animate-halo: halo 3.2s ease-out infinite;
+
+  /* Hero (M3 y M4) */
+  --animate-hero-zoom: hero-zoom 2.6s var(--ease-brand) both;
+  --animate-rise: rise 1.1s var(--ease-brand) both;
 }
 
 html {
@@ -117,5 +121,25 @@ body {
   to {
     transform: scale(1.8);
     opacity: 0;
+  }
+}
+
+@keyframes hero-zoom {
+  from {
+    transform: scale(1.08);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(2rem);
+  }
+  to {
+    opacity: 1;
+    transform: none;
   }
 }
