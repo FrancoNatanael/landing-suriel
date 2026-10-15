@@ -52,8 +52,8 @@ export const about = {
   ],
   stats: [
     { value: "15", label: "Años de experiencia", placeholder: false },
-    { value: "XX", label: "Clientes", placeholder: true },
-    { value: "XX", label: "Países alcanzados", placeholder: true },
+    { value: "+30", label: "Clientes", placeholder: false },
+    { value: "5", label: "Países alcanzados", placeholder: false },
   ],
   imageLabel: "foto: obra o planta",
   imageSrc: "/images/nosotros.webp",

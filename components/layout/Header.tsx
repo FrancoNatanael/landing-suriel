@@ -1,7 +1,8 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { header, nav } from "@/content/es";
+import { ButtonLink } from "@/components/ui/Button";
+import { header, hero, nav } from "@/content/es";
 import { cn } from "@/lib/utils";
 import { Logo } from "./Logo";
 
@@ -101,7 +102,7 @@ export function Header() {
         id="menu-movil"
         inert={!open}
         className={cn(
-          "fixed inset-x-0 top-18 bottom-0 bg-white transition-[opacity,transform] duration-500 ease-brand nav:hidden",
+          "fixed inset-x-0 top-18 bottom-0 flex flex-col justify-between overflow-y-auto bg-white transition-[opacity,transform] duration-500 ease-brand nav:hidden",
           open ? "translate-y-0 opacity-100" : "-translate-y-4 opacity-0",
         )}
       >
@@ -118,6 +119,16 @@ export function Header() {
             </li>
           ))}
         </ul>
+        <div className="px-6 pb-8 pt-6 md:px-8">
+          <ButtonLink
+            href={hero.primaryCta.href}
+            variant="primary"
+            onClick={() => setOpen(false)}
+            className="w-full"
+          >
+            {hero.primaryCta.label}
+          </ButtonLink>
+        </div>
       </div>
     </header>
   );
