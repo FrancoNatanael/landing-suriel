@@ -61,7 +61,7 @@ export function CaseCard({ data, number, reverse }: CaseCardProps) {
           <ImagePlaceholder
             key={label}
             label={label}
-            className="aspect-5/4 w-5/6 max-w-170 shrink-0 snap-start p-4 text-sm md:w-3/5 lg:h-full lg:w-auto"
+            className="aspect-4/5 w-5/6 max-w-170 md:aspect-5/4 shrink-0 snap-start p-4 text-sm md:w-3/5 lg:h-full lg:w-auto"
           />
         ))}
       </div>
