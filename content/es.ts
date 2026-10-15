@@ -252,3 +252,11 @@ export const contactSection = {
     successAfter: " horas hábiles.",
   },
 } as const;
+
+export const footer = {
+  tagline:
+    "Ingeniería y Servicios. Ingeniería, inspección y obras industriales desde 2012.",
+  navLabel: "Navegación",
+  contactLabel: "Contacto",
+  copyright: "© 2026 SURIEL Ingeniería y Servicios. Todos los derechos reservados.",
+} as const;

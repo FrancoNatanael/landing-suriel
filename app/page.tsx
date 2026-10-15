@@ -1,3 +1,4 @@
+import { Footer } from "@/components/layout/Footer";
 import { Header } from "@/components/layout/Header";
 import { RevealObserver } from "@/components/layout/RevealObserver";
 import { WhatsAppFloat } from "@/components/layout/WhatsAppFloat";
@@ -23,6 +24,7 @@ export default function Home() {
         <Projects />
         <Contact />
       </main>
+      <Footer />
       <WhatsAppFloat />
     </>
   );
