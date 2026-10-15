@@ -2,6 +2,7 @@ import { Header } from "@/components/layout/Header";
 import { RevealObserver } from "@/components/layout/RevealObserver";
 import { WhatsAppFloat } from "@/components/layout/WhatsAppFloat";
 import { About } from "@/components/sections/About";
+import { Projects } from "@/components/sections/Projects";
 import { Sectors } from "@/components/sections/Sectors";
 import { Services } from "@/components/sections/Services";
 import { ClientsStrip } from "@/components/sections/ClientsStrip";
@@ -18,6 +19,7 @@ export default function Home() {
         <About />
         <Services />
         <Sectors />
+        <Projects />
         {/* TEMPORAL: bloques para probar el scroll. Se reemplazan en las fases siguientes. */}
         <section id="contacto" className="h-screen bg-navy" />
       </main>

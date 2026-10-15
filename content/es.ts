@@ -142,3 +142,87 @@ export const sectors = {
   ],
   link: { label: "Ver proyectos →", href: "#proyectos" },
 } as const;
+
+export type Case = {
+  tag: string;
+  title: string;
+  client: string;
+  location: string; // "" se muestra "Por definir"
+  line: string;
+  sector: string; // "" se muestra "Por definir"
+  description: string;
+  photos: string[];
+};
+
+const photosFor = (n: number) => [1, 2, 3].map((k) => `foto ${n}.${k} · 4:3`);
+
+export const projects = {
+  eyebrow: "Proyectos",
+  title: "Trabajos realizados en planta.",
+  intro: "Seis casos destacados. Deslizá cada galería o usá las flechas del teclado.",
+  galleryLabel: "Galería",
+  fallback: "Por definir",
+  labels: { client: "Cliente", location: "Ubicación", line: "Línea", sector: "Sector" },
+  cases: [
+    {
+      tag: "Alimenticia",
+      title: "Prefabricado y montaje de cañerías de proceso",
+      client: "PepsiCo",
+      location: "Mar del Plata",
+      line: "Construcciones",
+      sector: "Alimenticia",
+      description: "Prefabricado y montaje de cañerías de proceso en planta de producción.",
+      photos: photosFor(1),
+    },
+    {
+      tag: "Soldadura y END",
+      title: "Soldadura de tubos aletados P22",
+      client: "YPF Luz",
+      location: "La Plata",
+      line: "Soldadura y END",
+      sector: "Energía",
+      description: "Soldadura de tubos aletados en acero P22 para equipos de generación.",
+      photos: photosFor(2),
+    },
+    {
+      tag: "Centrales eléctricas",
+      title: "Reemplazo de curva nariz de caldera Ø3\"",
+      client: "Central térmica",
+      location: "Necochea",
+      line: "Obras",
+      sector: "Centrales eléctricas",
+      description: "Reemplazo de la curva de nariz de caldera, Ø3\".",
+      photos: photosFor(3),
+    },
+    {
+      tag: "Química",
+      title: "Intercambiadores de calor",
+      client: "Termofluidos / SICA",
+      location: "Santa Fe",
+      line: "Construcciones",
+      sector: "Química",
+      description: "Fabricación y soldadura de intercambiadores de calor.",
+      photos: photosFor(4),
+    },
+    {
+      tag: "Construcciones",
+      title: "Aislación térmica tanques de proceso",
+      client: "CALSA",
+      location: "",
+      line: "Construcciones",
+      sector: "",
+      description: "Aislación térmica de tanques de proceso.",
+      photos: photosFor(5),
+    },
+    {
+      tag: "Ingeniería",
+      title: "Cañería de red de incendio",
+      client: "MercadoLibre",
+      location: "Mar del Plata",
+      line: "Ingeniería",
+      sector: "",
+      description: "Cañería de red de incendio.",
+      photos: photosFor(6),
+    },
+  ] satisfies Case[],
+};
