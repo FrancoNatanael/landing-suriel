@@ -28,3 +28,16 @@ export const hero = {
   secondaryCta: { label: "Ver proyectos →", href: "#proyectos" },
   sectors: ["Oil & Gas", "Energía", "Química", "Siderurgia", "Alimenticia"],
 } as const;
+
+export const clients = {
+  label: "Empresas que confían en SURIEL",
+  // Provisorio: todos usan logo1.svg.webp hasta tener los logos reales (P12).
+  logos: [
+    { name: "Cliente 1", src: "/logos/logo1.svg.webp" },
+    { name: "Cliente 2", src: "/logos/logo1.svg.webp" },
+    { name: "Cliente 3", src: "/logos/logo1.svg.webp" },
+    { name: "Cliente 4", src: "/logos/logo1.svg.webp" },
+    { name: "Cliente 5", src: "/logos/logo1.svg.webp" },
+    { name: "Cliente 6", src: "/logos/logo1.svg.webp" },
+  ],
+} as const;

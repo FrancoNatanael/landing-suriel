@@ -105,13 +105,13 @@ export function Header() {
           open ? "translate-y-0 opacity-100" : "-translate-y-4 opacity-0",
         )}
       >
-        <ul className="flex h-full flex-col border-t border-line px-6 md:px-8">
+        <ul className="border-t border-line px-6 md:px-8">
           {nav.map((item) => (
-            <li key={item.href} className="flex-1 border-b border-paper">
+            <li key={item.href} className="border-b border-paper">
               <a
                 href={item.href}
                 onClick={() => setOpen(false)}
-                className="flex h-full items-center text-xl leading-body text-heading focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-navy"
+                className="block py-5 text-xl leading-body text-heading focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-navy"
               >
                 {item.label}
               </a>
