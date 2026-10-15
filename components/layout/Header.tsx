@@ -31,6 +31,13 @@ export function Header() {
     };
   }, []);
 
+  useEffect(() => {
+    document.body.style.overflow = open ? "hidden" : "";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [open]);
+
   const solid = scrolled || open;
 
   return (
@@ -69,9 +76,24 @@ export function Header() {
           aria-expanded={open}
           aria-controls="menu-movil"
           onClick={() => setOpen((v) => !v)}
-          className="min-h-11 min-w-11 rounded border border-navy bg-white px-3 text-sm font-semibold text-navy focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-navy nav:hidden"
+          aria-label={open ? header.menuClose : header.menuOpen}
+          className="flex size-11 items-center justify-center text-current focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-navy nav:hidden"
         >
-          {open ? header.menuClose : header.menuOpen}
+          <svg
+            viewBox="0 0 24 24"
+            aria-hidden="true"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            className="size-6"
+          >
+            {open ? (
+              <path d="M6 6l12 12M18 6L6 18" />
+            ) : (
+              <path d="M4 7h16M4 12h16M4 17h16" />
+            )}
+          </svg>
         </button>
       </div>
 
@@ -79,25 +101,23 @@ export function Header() {
         id="menu-movil"
         inert={!open}
         className={cn(
-          "grid bg-white transition-[grid-template-rows,opacity] duration-500 ease-brand nav:hidden",
-          open ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0",
+          "fixed inset-x-0 top-18 bottom-0 bg-white transition-[opacity,transform] duration-500 ease-brand nav:hidden",
+          open ? "translate-y-0 opacity-100" : "-translate-y-4 opacity-0",
         )}
       >
-        <div className="overflow-hidden">
-          <ul className="border-t border-line px-6 md:px-8">
-            {nav.map((item) => (
-              <li key={item.href} className="border-b border-paper">
-                <a
-                  href={item.href}
-                  onClick={() => setOpen(false)}
-                  className="block py-4 text-base leading-body text-heading focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-navy"
-                >
-                  {item.label}
-                </a>
-              </li>
-            ))}
-          </ul>
-        </div>
+        <ul className="flex h-full flex-col border-t border-line px-6 md:px-8">
+          {nav.map((item) => (
+            <li key={item.href} className="flex-1 border-b border-paper">
+              <a
+                href={item.href}
+                onClick={() => setOpen(false)}
+                className="flex h-full items-center text-xl leading-body text-heading focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-navy"
+              >
+                {item.label}
+              </a>
+            </li>
+          ))}
+        </ul>
       </div>
     </header>
   );
