@@ -5,6 +5,6 @@ export const site = {
   name: "SURIEL Ingeniería y Servicios",
   title: "SURIEL | Ingeniería y Servicios",
   description:
-    "Ingeniería, calidad y gestión. Un solo equipo. Más de 15 años acompañando proyectos industriales.",
+    "Ingeniería, calidad y gestión. Un solo equipo. Proyectos industriales desde 2012.",
   foundingDate: "2012",
 } as const;

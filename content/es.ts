@@ -22,7 +22,7 @@ export const hero = {
   eyebrow: "Expertos en ingeniería",
   titleLine1: "Ingeniería, calidad y gestión.",
   titleLine2: "Un solo equipo.",
-  lead: "Más de 15 años acompañando proyectos industriales, con respuesta directa a quienes toman las decisiones.",
+  lead: "Diseñamos, fabricamos, montamos e inspeccionamos para la industria. Quien decide habla directo con quien resuelve.",
   image: { src: "/images/hero-image.webp", alt: "Planta industrial" },
   primaryCta: { label: "Contactar", href: "#contacto" },
   secondaryCta: { label: "Ver proyectos →", href: "#proyectos" },
@@ -30,7 +30,7 @@ export const hero = {
 } as const;
 
 export const clients = {
-  label: "Empresas que confían en SURIEL",
+  label: "Empresas que ya trabajan con nosotros",
   // Provisorio: todos usan logo1.svg.webp hasta tener los logos reales (P12).
   logos: [
     { name: "Cliente 1", src: "/logos/logo1.svg.webp" },
@@ -46,9 +46,9 @@ export const about = {
   eyebrow: "Nosotros",
   title: "Ingeniería, calidad y gestión en un mismo equipo.",
   paragraphs: [
-    "SURIEL nació en 2012 y hoy acompaña a plantas de petróleo y gas, energía, química, siderurgia y alimenticia. Diseñamos, fabricamos, montamos e inspeccionamos, siempre con un solo equipo.",
-    "Esa integración de Ingeniería, Calidad y Gestión es lo que nos distingue: no nos quedamos en detectar el problema, también lo resolvemos. Cada soldadura, ensayo e inspección queda registrado para que quien conduce el proyecto decida con información clara.",
-    "Trabajamos en las interfaces entre disciplinas, proyecto y obra, que es donde suele perderse el tiempo. Y lo hacemos con una estructura flexible: quien decide habla directo con quien resuelve.",
+    "SURIEL nació en 2012 y acompaña a plantas de petróleo y gas, energía, química, siderurgia y alimenticia. Diseñamos, fabricamos, montamos e inspeccionamos, siempre con un solo equipo.",
+    "Esa integración es lo que nos distingue: no nos quedamos en detectar el problema, también lo resolvemos. Cada soldadura, ensayo e inspección queda registrado para que quien conduce el proyecto decida con información clara.",
+    "Trabajamos donde se pierde el tiempo: en las interfaces entre disciplinas, proyecto y obra. Por eso nuestra estructura es flexible y no hay intermediarios entre quien decide y quien ejecuta.",
   ],
   stats: [
     { value: "15", label: "Años de experiencia", placeholder: false },
@@ -63,7 +63,7 @@ export const services = {
   eyebrow: "Servicios",
   title: "Cuatro líneas de trabajo, un solo responsable.",
   intro:
-    "Trabajamos en las interfaces entre disciplinas, proyecto y obra, que es donde suele perderse el tiempo. Un único equipo se hace cargo de la ingeniería, la fabricación, el montaje y el control de calidad, con respuesta directa y trazabilidad en cada etapa.",
+    "Ingeniería, fabricación, obra e inspección bajo un mismo equipo. Un único interlocutor responde por el proyecto completo, con respuesta directa y trazabilidad en cada etapa.",
   items: [
     {
       n: "01",
@@ -130,8 +130,9 @@ export const services = {
 
 export const sectors = {
   eyebrow: "Industrias",
-  title: "Seis industrias",
-  intro: "Trabajamos en plantas de seis sectores industriales.",
+  title: "Plantas de seis sectores industriales.",
+  intro:
+    "Conocemos las exigencias de cada rubro: normas, tiempos de parada y modos de operar.",
   thumbLabel: "foto sector",
   items: [
     "Oil & Gas",
@@ -169,8 +170,7 @@ const photosFor = (n: number) => [1, 2, 3].map((k) => `foto ${n}.${k} · 4:3`);
 export const projects = {
   eyebrow: "Proyectos",
   title: "Trabajos realizados en planta.",
-  intro:
-    "Seis casos destacados. Deslizá cada galería o usá las flechas del teclado.",
+  intro: "Seis casos reales de ingeniería, fabricación y obra en planta.",
   galleryLabel: "Galería",
   fallback: "Por definir",
   labels: {
@@ -188,7 +188,7 @@ export const projects = {
       line: "Construcciones",
       sector: "Alimenticia",
       description:
-        "Prefabricado y montaje de cañerías de proceso en planta de producción.",
+        "Prefabricado y montaje de cañerías de proceso en la planta de producción de PepsiCo, en Mar del Plata.",
       photos: photosFor(1),
     },
     {
@@ -199,7 +199,7 @@ export const projects = {
       line: "Soldadura y END",
       sector: "Energía",
       description:
-        "Soldadura de tubos aletados en acero P22 para equipos de generación.",
+        "Soldadura de tubos aletados en acero P22 para equipos de generación de YPF Luz, en La Plata.",
       photos: photosFor(2),
     },
     {
@@ -209,7 +209,8 @@ export const projects = {
       location: "Necochea",
       line: "Obras",
       sector: "Centrales eléctricas",
-      description: 'Reemplazo de la curva de nariz de caldera, Ø3".',
+      description:
+        'Reemplazo de la curva de nariz de caldera Ø3" en una central térmica de Necochea.',
       photos: photosFor(3),
     },
     {
@@ -219,7 +220,8 @@ export const projects = {
       location: "Santa Fe",
       line: "Construcciones",
       sector: "Química",
-      description: "Fabricación y soldadura de intercambiadores de calor.",
+      description:
+        "Fabricación y soldadura de intercambiadores de calor para Termofluidos / SICA, en Santa Fe.",
       photos: photosFor(4),
     },
     {
@@ -229,7 +231,7 @@ export const projects = {
       location: "",
       line: "Construcciones",
       sector: "",
-      description: "Aislación térmica de tanques de proceso.",
+      description: "Aislación térmica de tanques de proceso para CALSA.",
       photos: photosFor(5),
     },
     {
@@ -239,7 +241,8 @@ export const projects = {
       location: "Mar del Plata",
       line: "Ingeniería",
       sector: "",
-      description: "Cañería de red de incendio.",
+      description:
+        "Cañería de red de incendio para MercadoLibre, en Mar del Plata.",
       photos: photosFor(6),
     },
   ] satisfies Case[],
@@ -248,7 +251,8 @@ export const projects = {
 export const contactSection = {
   eyebrow: "Contacto",
   title: "Contanos qué necesitás.",
-  intro: "Escribinos por el canal que prefieras o completá el formulario.",
+  intro:
+    "Contanos tu proyecto y te respondemos con alguien que pueda resolverlo.",
   form: {
     name: "Nombre",
     company: "Empresa",
@@ -272,8 +276,7 @@ export const contactSection = {
 } as const;
 
 export const footer = {
-  tagline:
-    "Ingeniería y Servicios. Ingeniería, inspección y obras industriales desde 2012.",
+  tagline: "Ingeniería, inspección y obras industriales desde 2012.",
   navLabel: "Navegación",
   contactLabel: "Contacto",
   copyright:
