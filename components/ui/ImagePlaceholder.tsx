@@ -11,7 +11,7 @@ export function ImagePlaceholder({ label, className }: ImagePlaceholderProps) {
       role="img"
       aria-label={label}
       className={cn(
-        "bg-hatch flex items-center justify-center border border-dashed border-line-strong p-4 text-center text-sm text-muted grayscale",
+        "bg-hatch flex items-center justify-center border border-dashed border-line-strong text-center text-muted grayscale",
         className,
       )}
     >

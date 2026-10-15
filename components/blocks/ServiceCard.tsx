@@ -32,7 +32,7 @@ export function ServiceCard({ n, title, keys, image, tone }: ServiceCardProps) {
       </div>
       <ImagePlaceholder
         label={image}
-        className="aspect-video md:aspect-auto md:w-2/5 md:self-stretch lg:aspect-video lg:w-full lg:self-auto xl:aspect-auto xl:w-2/5 xl:self-stretch"
+        className="aspect-video p-4 text-sm md:aspect-auto md:w-2/5 md:self-stretch lg:aspect-video lg:w-full lg:self-auto xl:aspect-auto xl:w-2/5 xl:self-stretch"
       />
     </article>
   );

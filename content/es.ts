@@ -126,3 +126,19 @@ export const services = {
     },
   ],
 } as const;
+
+export const sectors = {
+  eyebrow: "Industrias",
+  title: "Seis industrias",
+  intro: "Trabajamos en plantas de seis sectores industriales.",
+  thumbLabel: "foto sector",
+  items: [
+    "Oil & Gas",
+    "Energía",
+    "Centrales eléctricas",
+    "Química",
+    "Siderurgia",
+    "Alimenticia",
+  ],
+  link: { label: "Ver proyectos →", href: "#proyectos" },
+} as const;

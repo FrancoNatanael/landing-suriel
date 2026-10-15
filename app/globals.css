@@ -63,25 +63,17 @@ body {
   line-height: var(--leading-body);
 }
 
-/* Revelado por bloque (M5): ligado al scroll donde hay soporte.
-   Sin soporte el contenido se ve sin animación, nunca oculto. */
-@keyframes reveal {
-  from {
-    opacity: 0;
-    transform: translateY(1.5rem);
-  }
-  to {
-    opacity: 1;
-    transform: none;
-  }
+/* Revelado por bloque (M5): lo activa RevealObserver al entrar en pantalla.
+   Sin JS el contenido se ve normal, nunca queda oculto. */
+html[data-reveal-ready] .reveal {
+  transition:
+    opacity 1.2s var(--ease-brand),
+    transform 1.2s var(--ease-brand);
 }
 
-@supports (animation-timeline: view()) {
-  .reveal {
-    animation: reveal linear both;
-    animation-timeline: view();
-    animation-range: entry 0% entry 42%;
-  }
+html[data-reveal-ready] .reveal:not(.is-visible) {
+  opacity: 0;
+  transform: translateY(4rem);
 }
 
 /* Máscara de bordes del marquee (M6) */
@@ -155,4 +147,13 @@ body {
   to {
     transform: translateX(-25%);
   }
+}
+
+/* Miniatura de sector (M7) */
+.sector-thumb {
+  transition:
+    opacity 350ms ease,
+    translate 450ms var(--ease-brand),
+    scale 450ms var(--ease-brand),
+    rotate 450ms var(--ease-brand);
 }

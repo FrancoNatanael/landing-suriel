@@ -38,7 +38,7 @@ export function About() {
 
         <ImagePlaceholder
           label={about.imageLabel}
-          className="reveal min-h-96 md:min-h-140"
+          className="reveal min-h-96 p-4 text-sm md:min-h-140"
         />
       </div>
     </section>
