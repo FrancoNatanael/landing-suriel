@@ -6,6 +6,7 @@ import { Projects } from "@/components/sections/Projects";
 import { Sectors } from "@/components/sections/Sectors";
 import { Services } from "@/components/sections/Services";
 import { ClientsStrip } from "@/components/sections/ClientsStrip";
+import { Contact } from "@/components/sections/Contact";
 import { Hero } from "@/components/sections/Hero";
 
 export default function Home() {
@@ -20,8 +21,7 @@ export default function Home() {
         <Services />
         <Sectors />
         <Projects />
-        {/* TEMPORAL: bloques para probar el scroll. Se reemplazan en las fases siguientes. */}
-        <section id="contacto" className="h-screen bg-navy" />
+        <Contact />
       </main>
       <WhatsAppFloat />
     </>

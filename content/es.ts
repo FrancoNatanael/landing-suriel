@@ -226,3 +226,29 @@ export const projects = {
     },
   ] satisfies Case[],
 };
+
+export const contactSection = {
+  eyebrow: "Contacto",
+  title: "Contanos qué necesitás.",
+  intro: "Escribinos por el canal que prefieras o completá el formulario.",
+  form: {
+    name: "Nombre",
+    company: "Empresa",
+    email: "Mail",
+    phone: "Teléfono",
+    message: "Motivo de la consulta",
+    industry: "Industria",
+    industryDefault: "Opcional",
+    industryOther: "Otra",
+    channel: "Canal preferido",
+    channelOptions: ["WhatsApp", "Teléfono", "Mail"],
+    window: "Ventana horaria para responder",
+    windowOptions: ["Mañana", "Tarde", "Indistinto"],
+    submit: "Enviar consulta",
+    errorContact: "Indicá un mail o un teléfono para responderte.",
+    successTitle: "Recibimos tu consulta.",
+    successBefore: "Te respondemos dentro de ",
+    successToken: "[X]",
+    successAfter: " horas hábiles.",
+  },
+} as const;

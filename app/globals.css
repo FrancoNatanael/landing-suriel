@@ -48,6 +48,9 @@
 
   /* Marquee de logos (M6) */
   --animate-marquee: marquee 32s linear infinite;
+
+  /* Mensaje de éxito del formulario (M10) */
+  --animate-fade-in: fade-in 0.9s var(--ease-brand) both;
 }
 
 html {
@@ -156,4 +159,13 @@ html[data-reveal-ready] .reveal:not(.is-visible) {
     translate 450ms var(--ease-brand),
     scale 450ms var(--ease-brand),
     rotate 450ms var(--ease-brand);
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
