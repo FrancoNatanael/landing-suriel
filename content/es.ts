@@ -23,7 +23,7 @@ export const hero = {
   titleLine1: "Ingeniería, calidad y gestión.",
   titleLine2: "Un solo equipo.",
   lead: "Más de 15 años acompañando proyectos industriales, con respuesta directa a quienes toman las decisiones.",
-  image: { src: "/images/hero-image.jpg", alt: "Planta industrial" },
+  image: { src: "/images/hero-image.webp", alt: "Planta industrial" },
   primaryCta: { label: "Contactar", href: "#contacto" },
   secondaryCta: { label: "Ver proyectos →", href: "#proyectos" },
   sectors: ["Oil & Gas", "Energía", "Química", "Siderurgia", "Alimenticia"],
@@ -67,7 +67,6 @@ export const services = {
     {
       n: "01",
       title: "Ingeniería",
-      tone: "white",
       image: "foto: ingeniería, piping y estructuras",
       keys: [
         "Conceptual, básica, de detalle y de fabricación",
@@ -83,7 +82,6 @@ export const services = {
     {
       n: "02",
       title: "Construcciones / Fabricaciones",
-      tone: "paper",
       image: "foto: fabricación de equipos y skids",
       keys: [
         "Equipos, skids y estructuras",
@@ -99,7 +97,6 @@ export const services = {
     {
       n: "03",
       title: "Obras",
-      tone: "paper",
       image: "foto: obra y montaje en planta",
       keys: [
         "Montajes industriales",
@@ -114,7 +111,6 @@ export const services = {
     {
       n: "04",
       title: "Soldadura y END",
-      tone: "white",
       image: "foto: inspección de soldadura y END",
       keys: [
         "Inspección de soldadura y calificación (WPS, PQR, WPQ)",

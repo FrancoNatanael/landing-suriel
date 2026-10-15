@@ -56,7 +56,7 @@ export function Header() {
           onClick={() => setOpen(false)}
           className="focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-navy"
         >
-          <Logo className={cn("transition-[filter] duration-250", solid && "brightness-0")} />
+          <Logo className={cn("transition-[filter] duration-250", solid ? "brightness-0" : "brightness-0 invert")} />
         </a>
 
         <nav aria-label={header.menuLabel} className="hidden items-center gap-8 nav:flex">

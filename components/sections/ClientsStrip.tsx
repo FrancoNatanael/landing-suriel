@@ -31,7 +31,7 @@ export function ClientsStrip() {
                       alt={logo.name}
                       width={160}
                       height={160}
-                      className="h-16 w-40 object-contain brightness-0 invert"
+                      className="h-16 w-40 object-contain"
                     />
                   </li>
                 ))}

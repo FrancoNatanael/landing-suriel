@@ -23,7 +23,6 @@ export function Services() {
               title={item.title}
               keys={item.keys}
               image={item.image}
-              tone={item.tone}
             />
           ))}
         </div>

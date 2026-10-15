@@ -27,6 +27,7 @@
   --text-title--line-height: 1.05;
   --text-headline: 2rem;
   --text-headline--line-height: 1.1;
+  --container-heading: 14em;
   --leading-display: 0.96;
   --leading-heading: 1.05;
   --leading-subheading: 1.1;
@@ -168,4 +169,9 @@ html[data-reveal-ready] .reveal:not(.is-visible) {
   to {
     opacity: 1;
   }
+}
+
+/* Reserva el alto de dos líneas de título (alinea las listas de las tarjetas) */
+@utility min-h-two-lines {
+  min-height: 2.2em;
 }

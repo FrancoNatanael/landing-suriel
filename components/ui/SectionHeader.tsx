@@ -30,7 +30,7 @@ export function SectionHeader({
         </Eyebrow>
         <h2
           className={cn(
-            "max-w-[14em] text-3xl font-semibold leading-heading md:text-4xl lg:text-title",
+            "max-w-heading text-3xl font-semibold leading-heading md:text-4xl lg:text-title",
             dark ? "text-white" : "text-heading",
           )}
         >

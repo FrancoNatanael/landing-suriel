@@ -65,10 +65,10 @@ export function Hero() {
             </ButtonLink>
           </div>
           <p
-            className="animate-rise text-sm leading-body text-white"
+            className="animate-rise text-base md:text-lg leading-body text-white"
             style={rise(4)}
           >
-            {hero.sectors.join(" / ")}
+            {hero.sectors.join("  /  ")}
           </p>
         </div>
       </div>

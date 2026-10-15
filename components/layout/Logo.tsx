@@ -5,7 +5,7 @@ type LogoProps = {
   className?: string;
 };
 
-/** Logo provisorio (versión blanca). Sobre fondo claro, pasar `brightness-0`. */
+/** Logo oscuro. Sobre fondo oscuro, pasar `brightness-0 invert`; sobre fondo claro, `brightness-0`. */
 export function Logo({ className }: LogoProps) {
   return (
     <Image
@@ -14,7 +14,7 @@ export function Logo({ className }: LogoProps) {
       width={152}
       height={56}
       unoptimized
-      className={cn("h-14 w-38 object-contain", className)}
+      className={cn("h-14 w-38 object-contain object-left", className)}
     />
   );
 }
