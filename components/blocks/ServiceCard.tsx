@@ -18,14 +18,14 @@ export function ServiceCard({ n, title, keys, image, imageSrc }: ServiceCardProp
         className="absolute inset-0 -z-20 transition-transform duration-1000 ease-brand group-hover:scale-110"
       >
         {imageSrc ? (
-          <Image src={imageSrc} alt="" fill sizes="(min-width: 48rem) 50vw, 100vw" className="object-cover" />
+          <Image src={imageSrc} alt="" fill sizes="(min-width: 64rem) 34vw, (min-width: 48rem) 50vw, 100vw" className="object-cover" />
         ) : (
           <div className="bg-hatch-dark size-full" />
         )}
       </div>
       <div
         aria-hidden="true"
-        className="absolute inset-0 -z-10 bg-linear-to-t from-black/80 via-black/30 to-black/10 transition-opacity duration-700 group-hover:opacity-90"
+        className="absolute inset-0 -z-10 bg-linear-to-t from-black/85 via-black/45 to-black/20 transition-opacity duration-700 group-hover:opacity-90"
       />
 
       <div className="flex items-start justify-between gap-6">

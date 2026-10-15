@@ -56,6 +56,7 @@ export const about = {
     { value: "XX", label: "Países alcanzados", placeholder: true },
   ],
   imageLabel: "foto: obra o planta",
+  imageSrc: "/images/nosotros.webp",
 } as const;
 
 export const services = {
@@ -68,6 +69,7 @@ export const services = {
       n: "01",
       title: "Ingeniería",
       image: "foto: ingeniería, piping y estructuras",
+      imageSrc: "/images/ingenieria.webp",
       keys: [
         "Conceptual, básica, de detalle y de fabricación",
         "Equipos de proceso y piping",
@@ -83,6 +85,7 @@ export const services = {
       n: "02",
       title: "Construcciones / Fabricaciones",
       image: "foto: fabricación de equipos y skids",
+      imageSrc: "/images/construcciones.webp",
       keys: [
         "Equipos, skids y estructuras",
         "Montaje de piping",
@@ -98,6 +101,7 @@ export const services = {
       n: "03",
       title: "Obras",
       image: "foto: obra y montaje en planta",
+      imageSrc: "/images/obras.webp",
       keys: [
         "Montajes industriales",
         "Reparación y mantenimiento de calderas",
@@ -112,6 +116,7 @@ export const services = {
       n: "04",
       title: "Soldadura y END",
       image: "foto: inspección de soldadura y END",
+      imageSrc: "/images/soldarura.webp",
       keys: [
         "Inspección de soldadura y calificación (WPS, PQR, WPQ)",
         "Inspección de tanques, equipos a presión, recubrimientos, FAT/SAT",
@@ -135,6 +140,15 @@ export const sectors = {
     "Química",
     "Siderurgia",
     "Alimenticia",
+  ],
+  // Misma posición que items; "" = sin foto (se muestra placeholder)
+  thumbs: [
+    "/images/hero-image.webp",
+    "/images/energia.webp",
+    "/images/central-electrica.webp",
+    "/images/quimica.webp",
+    "/images/siderurgia.webp",
+    "/images/alimenticia.webp",
   ],
   link: { label: "Ver proyectos →", href: "#proyectos" },
 } as const;

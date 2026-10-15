@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { StatItem } from "@/components/blocks/StatItem";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { ImagePlaceholder } from "@/components/ui/ImagePlaceholder";
@@ -5,7 +6,10 @@ import { about } from "@/content/es";
 
 export function About() {
   return (
-    <section id="nosotros" className="bg-white px-6 py-24 md:px-8 md:py-32 lg:px-10 lg:py-40">
+    <section
+      id="nosotros"
+      className="bg-surface px-6 py-24 md:px-8 md:py-32 lg:px-10 lg:py-40"
+    >
       <div className="mx-auto grid max-w-360 gap-12 md:gap-16 lg:grid-cols-2 lg:gap-24">
         <div>
           <div className="reveal">
@@ -36,10 +40,22 @@ export function About() {
           </div>
         </div>
 
-        <ImagePlaceholder
-          label={about.imageLabel}
-          className="reveal min-h-96 p-4 text-sm md:min-h-140"
-        />
+        {about.imageSrc ? (
+          <div className="reveal relative min-h-96 overflow-hidden md:min-h-140">
+            <Image
+              src={about.imageSrc}
+              alt=""
+              fill
+              sizes="(min-width: 64rem) 50vw, 100vw"
+              className="object-cover"
+            />
+          </div>
+        ) : (
+          <ImagePlaceholder
+            label={about.imageLabel}
+            className="reveal min-h-96 p-4 text-sm md:min-h-140"
+          />
+        )}
       </div>
     </section>
   );

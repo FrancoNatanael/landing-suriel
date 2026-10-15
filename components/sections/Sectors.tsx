@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { ImagePlaceholder } from "@/components/ui/ImagePlaceholder";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import { sectors } from "@/content/es";
@@ -31,10 +32,25 @@ export function Sectors() {
                   {name}
                 </span>
               </div>
-              <ImagePlaceholder
-                label={sectors.thumbLabel}
-                className="sector-thumb pointer-events-none aspect-16/10 w-24 shrink-0 p-1 text-xs md:w-32 lg:absolute lg:top-1/2 lg:right-4 lg:w-56 lg:-translate-y-1/2 lg:translate-x-6 lg:scale-90 lg:p-2 lg:opacity-0 lg:group-hover:translate-x-0 lg:group-hover:scale-100 lg:group-hover:-rotate-2 lg:group-hover:opacity-100"
-              />
+              {sectors.thumbs[i] ? (
+                <div
+                  aria-hidden="true"
+                  className="sector-thumb pointer-events-none relative aspect-16/10 w-36 shrink-0 overflow-hidden md:w-48 lg:absolute lg:top-1/2 lg:right-4 lg:w-56 lg:-translate-y-1/2 lg:translate-x-6 lg:scale-90 lg:opacity-0 lg:group-hover:translate-x-0 lg:group-hover:scale-100 lg:group-hover:-rotate-2 lg:group-hover:opacity-100"
+                >
+                  <Image
+                    src={sectors.thumbs[i]}
+                    alt=""
+                    fill
+                    sizes="(min-width: 64rem) 14rem, (min-width: 48rem) 12rem, 9rem"
+                    className="object-cover"
+                  />
+                </div>
+              ) : (
+                <ImagePlaceholder
+                  label={sectors.thumbLabel}
+                  className="sector-thumb pointer-events-none aspect-16/10 w-36 shrink-0 p-1 text-xs md:w-48 lg:absolute lg:top-1/2 lg:right-4 lg:w-56 lg:-translate-y-1/2 lg:translate-x-6 lg:scale-90 lg:p-2 lg:opacity-0 lg:group-hover:translate-x-0 lg:group-hover:scale-100 lg:group-hover:-rotate-2 lg:group-hover:opacity-100"
+                />
+              )}
             </li>
           ))}
         </ul>

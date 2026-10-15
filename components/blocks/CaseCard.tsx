@@ -19,7 +19,7 @@ export function CaseCard({ data, number, reverse }: CaseCardProps) {
   return (
     <article
       className={cn(
-        "reveal flex min-h-130 flex-col border border-line bg-white lg:flex-row",
+        "reveal flex min-h-130 flex-col border border-line lg:flex-row",
         reverse && "lg:flex-row-reverse",
       )}
     >

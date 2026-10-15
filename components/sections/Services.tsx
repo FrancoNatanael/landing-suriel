@@ -5,7 +5,7 @@ import { hero, services } from "@/content/es";
 
 export function Services() {
   return (
-    <section id="que-hacemos" className="bg-white pt-24 md:pt-32 lg:pt-40">
+    <section id="que-hacemos" className="bg-surface pt-24 md:pt-32 lg:pt-40">
       <div className="grid auto-rows-fr gap-0 md:grid-cols-2 lg:grid-cols-3">
         <div className="reveal flex flex-col justify-between gap-12 bg-navy-night p-6 pb-12 text-white md:col-span-2 md:p-8 md:pb-16 lg:col-span-1 lg:row-span-2 lg:p-10">
           <div>
@@ -36,6 +36,7 @@ export function Services() {
             title={item.title}
             keys={item.keys}
             image={item.image}
+            imageSrc={item.imageSrc}
           />
         ))}
       </div>

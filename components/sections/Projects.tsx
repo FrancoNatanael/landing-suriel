@@ -6,7 +6,7 @@ export function Projects() {
   return (
     <section
       id="proyectos"
-      className="bg-white px-6 py-24 md:px-8 md:py-32 lg:px-10 lg:py-40"
+      className="bg-surface px-6 py-24 md:px-8 md:py-32 lg:px-10 lg:py-40"
     >
       <div className="mx-auto max-w-360">
         <SectionHeader
