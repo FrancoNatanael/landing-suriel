@@ -38,6 +38,9 @@
 
   /* Movimiento (M1) */
   --ease-brand: cubic-bezier(0.16, 1, 0.3, 1);
+
+  /* Halo de WhatsApp (M12) */
+  --animate-halo: halo 3.2s ease-out infinite;
 }
 
 html {
@@ -94,5 +97,25 @@ body {
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
+  }
+}
+
+/* Hatch de imagen placeholder */
+.bg-hatch {
+  background-image: repeating-linear-gradient(
+    135deg,
+    var(--color-placeholder) 0 0.5rem,
+    var(--color-placeholder-alt) 0.5rem 1rem
+  );
+}
+
+@keyframes halo {
+  from {
+    transform: scale(1);
+    opacity: 0.5;
+  }
+  to {
+    transform: scale(1.8);
+    opacity: 0;
   }
 }
