@@ -1,0 +1,98 @@
+@import "tailwindcss";
+
+@theme {
+  /* Colores */
+  --color-navy: #1f3358;
+  --color-navy-soft: #c9d2e3;
+  --color-heading: #0c0c0c;
+  --color-ink: #0e0e0e;
+  --color-body: #3b424d;
+  --color-muted: #5a616c;
+  --color-subtle: #8c97ad;
+  --color-paper: #e9eaee;
+  --color-line: #c9ccd3;
+  --color-line-strong: #9aa0ab;
+  --color-placeholder: #d9d9d9;
+  --color-placeholder-alt: #cfd1d6;
+  --color-hero-base: #2a2f36;
+  --color-danger: #8a1f1f;
+  --color-whatsapp: #25d366;
+  --color-whatsapp-hover: #1ebe5a;
+
+  /* Tipografía */
+  --font-sans: var(--font-archivo), ui-sans-serif, system-ui, sans-serif;
+  --text-display: 4rem;
+  --text-display--line-height: 0.96;
+  --text-title: 2.625rem;
+  --text-title--line-height: 1.05;
+  --text-headline: 2rem;
+  --text-headline--line-height: 1.1;
+  --leading-display: 0.96;
+  --leading-heading: 1.05;
+  --leading-subheading: 1.1;
+  --leading-body: 1.55;
+  --tracking-brand: -0.03125rem;
+
+  /* Breakpoint propio del menú (el diseño lo fija en 900) */
+  --breakpoint-nav: 56.25rem;
+
+  /* Movimiento (M1) */
+  --ease-brand: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: calc(var(--spacing) * 18);
+}
+
+body {
+  background: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  letter-spacing: var(--tracking-brand);
+  line-height: var(--leading-body);
+}
+
+/* Revelado por bloque (M5): ligado al scroll donde hay soporte.
+   Sin soporte el contenido se ve sin animación, nunca oculto. */
+@keyframes reveal {
+  from {
+    opacity: 0;
+    transform: translateY(1.5rem);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@supports (animation-timeline: view()) {
+  .reveal {
+    animation: reveal linear both;
+    animation-timeline: view();
+    animation-range: entry 0% entry 42%;
+  }
+}
+
+/* Máscara de bordes del marquee (M6) */
+.mask-marquee {
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    #000 10rem,
+    #000 calc(100% - 10rem),
+    transparent
+  );
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
