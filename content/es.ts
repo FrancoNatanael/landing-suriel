@@ -41,3 +41,19 @@ export const clients = {
     { name: "Cliente 6", src: "/logos/logo1.svg.webp" },
   ],
 } as const;
+
+export const about = {
+  eyebrow: "Nosotros",
+  title: "Ingeniería, calidad y gestión en un mismo equipo.",
+  paragraphs: [
+    "SURIEL nació en 2012 y hoy acompaña a plantas de petróleo y gas, energía, química, siderurgia y alimenticia. Diseñamos, fabricamos, montamos e inspeccionamos, siempre con un solo equipo.",
+    "Esa integración de Ingeniería, Calidad y Gestión es lo que nos distingue: no nos quedamos en detectar el problema, también lo resolvemos. Cada soldadura, ensayo e inspección queda registrado para que quien conduce el proyecto decida con información clara.",
+    "Trabajamos en las interfaces entre disciplinas, proyecto y obra, que es donde suele perderse el tiempo. Y lo hacemos con una estructura flexible: quien decide habla directo con quien resuelve.",
+  ],
+  stats: [
+    { value: "15", label: "Años de experiencia", placeholder: false },
+    { value: "XX", label: "Clientes", placeholder: true },
+    { value: "XX", label: "Países alcanzados", placeholder: true },
+  ],
+  imageLabel: "foto: obra o planta",
+} as const;
