@@ -62,7 +62,7 @@ export const services = {
   eyebrow: "Servicios",
   title: "Cuatro líneas de trabajo, un solo responsable.",
   intro:
-    "Trabajamos en las interfaces entre disciplinas, proyecto y obra, que es donde suele perderse el tiempo.",
+    "Trabajamos en las interfaces entre disciplinas, proyecto y obra, que es donde suele perderse el tiempo. Un único equipo se hace cargo de la ingeniería, la fabricación, el montaje y el control de calidad, con respuesta directa y trazabilidad en cada etapa.",
   items: [
     {
       n: "01",
@@ -155,10 +155,16 @@ const photosFor = (n: number) => [1, 2, 3].map((k) => `foto ${n}.${k} · 4:3`);
 export const projects = {
   eyebrow: "Proyectos",
   title: "Trabajos realizados en planta.",
-  intro: "Seis casos destacados. Deslizá cada galería o usá las flechas del teclado.",
+  intro:
+    "Seis casos destacados. Deslizá cada galería o usá las flechas del teclado.",
   galleryLabel: "Galería",
   fallback: "Por definir",
-  labels: { client: "Cliente", location: "Ubicación", line: "Línea", sector: "Sector" },
+  labels: {
+    client: "Cliente",
+    location: "Ubicación",
+    line: "Línea",
+    sector: "Sector",
+  },
   cases: [
     {
       tag: "Alimenticia",
@@ -167,7 +173,8 @@ export const projects = {
       location: "Mar del Plata",
       line: "Construcciones",
       sector: "Alimenticia",
-      description: "Prefabricado y montaje de cañerías de proceso en planta de producción.",
+      description:
+        "Prefabricado y montaje de cañerías de proceso en planta de producción.",
       photos: photosFor(1),
     },
     {
@@ -177,17 +184,18 @@ export const projects = {
       location: "La Plata",
       line: "Soldadura y END",
       sector: "Energía",
-      description: "Soldadura de tubos aletados en acero P22 para equipos de generación.",
+      description:
+        "Soldadura de tubos aletados en acero P22 para equipos de generación.",
       photos: photosFor(2),
     },
     {
       tag: "Centrales eléctricas",
-      title: "Reemplazo de curva nariz de caldera Ø3\"",
+      title: 'Reemplazo de curva nariz de caldera Ø3"',
       client: "Central térmica",
       location: "Necochea",
       line: "Obras",
       sector: "Centrales eléctricas",
-      description: "Reemplazo de la curva de nariz de caldera, Ø3\".",
+      description: 'Reemplazo de la curva de nariz de caldera, Ø3".',
       photos: photosFor(3),
     },
     {
@@ -254,5 +262,6 @@ export const footer = {
     "Ingeniería y Servicios. Ingeniería, inspección y obras industriales desde 2012.",
   navLabel: "Navegación",
   contactLabel: "Contacto",
-  copyright: "© 2026 SURIEL Ingeniería y Servicios. Todos los derechos reservados.",
+  copyright:
+    "© 2026 SURIEL Ingeniería y Servicios. Todos los derechos reservados.",
 } as const;

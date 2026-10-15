@@ -3,6 +3,8 @@
 @theme {
   /* Colores */
   --color-navy: #1f3358;
+  --color-navy-ink: #213559;
+  --color-navy-night: #0e1625;
   --color-navy-soft: #c9d2e3;
   --color-heading: #0c0c0c;
   --color-ink: #0e0e0e;
@@ -171,7 +173,12 @@ html[data-reveal-ready] .reveal:not(.is-visible) {
   }
 }
 
-/* Reserva el alto de dos líneas de título (alinea las listas de las tarjetas) */
-@utility min-h-two-lines {
-  min-height: 2.2em;
+
+/* Fondo oscuro rayado para fotos placeholder sobre las que va texto */
+.bg-hatch-dark {
+  background-image: repeating-linear-gradient(
+    135deg,
+    rgb(255 255 255 / 0.05) 0 0.5rem,
+    transparent 0.5rem 1rem
+  );
 }
