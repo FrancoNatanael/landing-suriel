@@ -1,3 +1,4 @@
+import { site, siteUrl } from "@/content/site";
 import { Footer } from "@/components/layout/Footer";
 import { Header } from "@/components/layout/Header";
 import { RevealObserver } from "@/components/layout/RevealObserver";
@@ -10,9 +11,23 @@ import { ClientsStrip } from "@/components/sections/ClientsStrip";
 import { Contact } from "@/components/sections/Contact";
 import { Hero } from "@/components/sections/Hero";
 
+const organizationJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: site.name,
+  url: siteUrl,
+  logo: `${siteUrl}/logos/logo-suriel.svg`,
+  description: site.description,
+  foundingDate: site.foundingDate,
+};
+
 export default function Home() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
+      />
       <RevealObserver />
       <Header />
       <main className="flex-1">

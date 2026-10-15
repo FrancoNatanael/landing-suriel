@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Archivo } from "next/font/google";
+import { site, siteUrl } from "@/content/site";
 import "./globals.css";
 
 const archivo = Archivo({
@@ -10,9 +11,16 @@ const archivo = Archivo({
 });
 
 export const metadata: Metadata = {
-  title: "SURIEL | Ingeniería y Servicios",
-  description:
-    "Ingeniería, calidad y gestión. Un solo equipo. Más de 15 años acompañando proyectos industriales.",
+  metadataBase: new URL(siteUrl),
+  title: site.title,
+  description: site.description,
+  openGraph: {
+    title: site.title,
+    description: site.description,
+    siteName: site.name,
+    locale: "es_AR",
+    type: "website",
+  },
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
