@@ -25,7 +25,7 @@ export function Hero() {
 
       <div className="relative mx-auto flex h-full max-w-360 flex-col justify-end px-6 pt-18 pb-12 md:px-8 md:pb-16 lg:px-10 lg:pb-20">
         <div className="animate-rise" style={rise(0)}>
-          <Eyebrow tone="white" className="mb-6">
+          <Eyebrow tone="white" subtle className="mb-6">
             {hero.eyebrow}
           </Eyebrow>
         </div>

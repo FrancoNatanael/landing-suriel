@@ -2,7 +2,8 @@ import { ChannelIcon } from "@/components/ui/ChannelIcon";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { Value } from "@/components/ui/Value";
 import { channels } from "@/content/contact";
-import { footer, header, nav } from "@/content/es";
+import { footer, header } from "@/content/es";
+import { navFull } from "@/content/v2";
 import { Logo } from "./Logo";
 
 const link =
@@ -30,7 +31,7 @@ export function Footer() {
               {footer.navLabel}
             </Eyebrow>
             <ul className="border-t border-white/50">
-              {nav.map((item) => (
+              {navFull.map((item) => (
                 <li key={item.href} className="border-b border-white/28">
                   <a
                     href={item.href}

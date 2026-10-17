@@ -4,8 +4,8 @@ import { useEffect, useRef, useState } from "react";
 import { ButtonLink } from "@/components/ui/Button";
 import { ChannelIcon } from "@/components/ui/ChannelIcon";
 import { contact } from "@/content/contact";
-import { header, hero, nav } from "@/content/es";
-import type { NavItem } from "@/content/v2";
+import { header, hero } from "@/content/es";
+import { navDesktop, navFull, type NavItem } from "@/content/v2";
 import { cn } from "@/lib/utils";
 import { Logo } from "./Logo";
 
@@ -19,7 +19,7 @@ type HeaderProps = {
 /** LinkedIn se oculta entre el ancho donde aparece el menú completo y el ancho donde hay lugar para el ícono. */
 const LINKEDIN_VISIBILITY = "nav:max-lg:hidden";
 
-export function Header({ items = nav, mobileItems = items }: HeaderProps) {
+export function Header({ items = navDesktop, mobileItems = navFull }: HeaderProps) {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const barRef = useRef<HTMLElement>(null);

@@ -7,8 +7,10 @@ import { WhatsAppFloat } from "@/components/layout/WhatsAppFloat";
 import { About } from "@/components/sections/About";
 import { Projects } from "@/components/sections/Projects";
 import { Sectors } from "@/components/sections/Sectors";
+import { Gestion } from "@/components/sections/Gestion";
 import { Ingenieria } from "@/components/sections/Ingenieria";
 import { Inspeccion } from "@/components/sections/Inspeccion";
+import { Outsourcing } from "@/components/sections/Outsourcing";
 import { ServicesBand } from "@/components/sections/ServicesBand";
 import { ClientsStrip } from "@/components/sections/ClientsStrip";
 import { Contact } from "@/components/sections/Contact";
@@ -43,6 +45,8 @@ export default function Home() {
         <ServicesBand />
         <Ingenieria />
         <Inspeccion />
+        <Gestion />
+        <Outsourcing />
         <Sectors />
         <Projects />
         <Contact />
