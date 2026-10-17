@@ -30,10 +30,13 @@
   --text-title--line-height: 1.05;
   --text-headline: 2rem;
   --text-headline--line-height: 1.1;
+  --text-statement: 2.5rem;
+  --text-statement--line-height: 1.15;
   --container-heading: 14em;
   --leading-display: 0.96;
   --leading-heading: 1.05;
   --leading-subheading: 1.1;
+  --leading-statement: 1.15;
   --leading-body: 1.55;
   --tracking-brand: -0.03125rem;
 
@@ -182,4 +185,26 @@ html[data-reveal-ready] .reveal:not(.is-visible) {
     rgb(255 255 255 / 0.05) 0 0.5rem,
     transparent 0.5rem 1rem
   );
+}
+
+/* Marcas de cruz en las esquinas (celdas de cifras sobre foto). Los trazos son hairlines. */
+.cross-corners {
+  --cross-size: 0.75rem;
+  --cross-color: rgb(255 255 255 / 0.6);
+}
+
+.cross-corners::before {
+  content: "";
+  position: absolute;
+  inset: calc(var(--cross-size) / -2);
+  pointer-events: none;
+  background:
+    linear-gradient(var(--cross-color), var(--cross-color)) left top calc(var(--cross-size) / 2) / var(--cross-size) 1px no-repeat,
+    linear-gradient(var(--cross-color), var(--cross-color)) left calc(var(--cross-size) / 2) top / 1px var(--cross-size) no-repeat,
+    linear-gradient(var(--cross-color), var(--cross-color)) right top calc(var(--cross-size) / 2) / var(--cross-size) 1px no-repeat,
+    linear-gradient(var(--cross-color), var(--cross-color)) right calc(var(--cross-size) / 2) top / 1px var(--cross-size) no-repeat,
+    linear-gradient(var(--cross-color), var(--cross-color)) left bottom calc(var(--cross-size) / 2) / var(--cross-size) 1px no-repeat,
+    linear-gradient(var(--cross-color), var(--cross-color)) left calc(var(--cross-size) / 2) bottom / 1px var(--cross-size) no-repeat,
+    linear-gradient(var(--cross-color), var(--cross-color)) right bottom calc(var(--cross-size) / 2) / var(--cross-size) 1px no-repeat,
+    linear-gradient(var(--cross-color), var(--cross-color)) right calc(var(--cross-size) / 2) bottom / 1px var(--cross-size) no-repeat;
 }

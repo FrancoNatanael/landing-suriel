@@ -26,7 +26,7 @@ export const hero = {
   lead: "Diseñamos, fabricamos, montamos e inspeccionamos para la industria. Quien decide habla directo con quien resuelve.",
   image: { src: "/images/hero-image.webp", alt: "Planta industrial" },
   primaryCta: { label: "Contactar", href: "#contacto" },
-  secondaryCta: { label: "Ver proyectos →", href: "#proyectos" },
+  secondaryCta: { label: "Ver proyectos", href: "#proyectos" },
   sectors: ["Oil & Gas", "Energía", "Química", "Siderurgia", "Alimenticia"],
 } as const;
 

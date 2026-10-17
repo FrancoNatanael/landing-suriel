@@ -14,7 +14,7 @@ export function About() {
         <div>
           <div className="reveal">
             <Eyebrow className="mb-6">{about.eyebrow}</Eyebrow>
-            <h2 className="max-w-heading text-3xl font-semibold leading-heading text-heading md:text-4xl lg:text-title">
+            <h2 className="max-w-heading text-3xl font-medium leading-heading text-heading md:text-4xl lg:text-title">
               {about.title}
             </h2>
           </div>

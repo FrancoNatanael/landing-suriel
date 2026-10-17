@@ -12,7 +12,7 @@ export function Services() {
             <Eyebrow tone="white" className="mb-6">
               {services.eyebrow}
             </Eyebrow>
-            <h2 className="text-3xl font-semibold leading-heading text-white md:text-4xl lg:text-4xl xl:text-title">
+            <h2 className="text-3xl font-medium leading-heading text-white md:text-4xl lg:text-4xl xl:text-title">
               {services.title}
             </h2>
           </div>

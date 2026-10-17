@@ -1,9 +1,10 @@
 import { cn } from "@/lib/utils";
+import { ArrowIcon } from "./ArrowIcon";
 
 export type ButtonVariant = "primary" | "outline" | "submit" | "light";
 
 const base =
-  "inline-flex h-13 items-center justify-center text-base leading-body transition-colors duration-300 active:translate-y-px focus-visible:outline-2 focus-visible:outline-offset-2";
+  "group inline-flex h-13 items-center justify-center text-base leading-body transition-colors duration-300 active:translate-y-px focus-visible:outline-2 focus-visible:outline-offset-2";
 
 const variants: Record<ButtonVariant, string> = {
   primary:
@@ -22,12 +23,23 @@ export function buttonClasses(variant: ButtonVariant, className?: string) {
 
 type ButtonLinkProps = React.ComponentProps<"a"> & {
   variant?: ButtonVariant;
+  /** Flecha al final del texto. Por defecto la llevan todos los botones menos "submit". */
+  arrow?: boolean;
 };
 
 export function ButtonLink({
   variant = "primary",
+  arrow = variant !== "submit",
   className,
+  children,
   ...props
 }: ButtonLinkProps) {
-  return <a className={buttonClasses(variant, className)} {...props} />;
+  return (
+    <a className={buttonClasses(variant, className)} {...props}>
+      {children}
+      {arrow ? (
+        <ArrowIcon className="ml-3 transition-transform duration-300 ease-brand group-hover:translate-x-1" />
+      ) : null}
+    </a>
+  );
 }

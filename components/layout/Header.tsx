@@ -5,10 +5,21 @@ import { ButtonLink } from "@/components/ui/Button";
 import { ChannelIcon } from "@/components/ui/ChannelIcon";
 import { contact } from "@/content/contact";
 import { header, hero, nav } from "@/content/es";
+import type { NavItem } from "@/content/v2";
 import { cn } from "@/lib/utils";
 import { Logo } from "./Logo";
 
-export function Header() {
+type HeaderProps = {
+  /** Links de la barra de escritorio. */
+  items?: readonly NavItem[];
+  /** Links del menú móvil (suma "Inicio"). Por defecto, los mismos de la barra. */
+  mobileItems?: readonly NavItem[];
+};
+
+/** LinkedIn se oculta entre el ancho donde aparece el menú completo y el ancho donde hay lugar para el ícono. */
+const LINKEDIN_VISIBILITY = "nav:max-lg:hidden";
+
+export function Header({ items = nav, mobileItems = items }: HeaderProps) {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const barRef = useRef<HTMLElement>(null);
@@ -69,16 +80,16 @@ export function Header() {
           />
         </a>
 
-        <div className="flex items-center gap-2 nav:gap-8">
+        <div className="flex items-center gap-2 nav:gap-5 xl:gap-8">
           <nav
             aria-label={header.menuLabel}
-            className="hidden items-center gap-8 nav:flex"
+            className="hidden items-center gap-5 nav:flex xl:gap-8"
           >
-            {nav.map((item) => (
+            {items.map((item) => (
               <a
                 key={item.href}
                 href={item.href}
-                className="text-base leading-body underline-offset-4 hover:underline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-navy"
+                className="text-sm leading-body whitespace-nowrap underline-offset-4 xl:text-base hover:underline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-navy"
               >
                 {item.label}
               </a>
@@ -90,7 +101,7 @@ export function Header() {
             target="_blank"
             rel="noopener noreferrer"
             aria-label={header.linkedinLabel}
-            className="flex size-11 items-center justify-center text-current transition-opacity duration-300 hover:opacity-70 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-current"
+            className={cn("flex size-11 items-center justify-center text-current transition-opacity duration-300 hover:opacity-70 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-current", LINKEDIN_VISIBILITY)}
           >
             <ChannelIcon name="linkedin" className="size-6" />
           </a>
@@ -131,7 +142,7 @@ export function Header() {
         )}
       >
         <ul className="border-t border-white/15 px-6 md:px-8">
-          {nav.map((item) => (
+          {mobileItems.map((item) => (
             <li key={item.href} className="border-b border-white/15">
               <a
                 href={item.href}
