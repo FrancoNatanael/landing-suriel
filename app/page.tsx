@@ -7,7 +7,9 @@ import { WhatsAppFloat } from "@/components/layout/WhatsAppFloat";
 import { About } from "@/components/sections/About";
 import { Projects } from "@/components/sections/Projects";
 import { Sectors } from "@/components/sections/Sectors";
-import { Services } from "@/components/sections/Services";
+import { Ingenieria } from "@/components/sections/Ingenieria";
+import { Inspeccion } from "@/components/sections/Inspeccion";
+import { ServicesBand } from "@/components/sections/ServicesBand";
 import { ClientsStrip } from "@/components/sections/ClientsStrip";
 import { Contact } from "@/components/sections/Contact";
 import { Hero } from "@/components/sections/Hero";
@@ -38,7 +40,9 @@ export default function Home() {
         <Hero />
         <ClientsStrip />
         <About />
-        <Services />
+        <ServicesBand />
+        <Ingenieria />
+        <Inspeccion />
         <Sectors />
         <Projects />
         <Contact />

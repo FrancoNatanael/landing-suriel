@@ -68,7 +68,7 @@ export const ingenieria: ServiceV2 & {
   body: "Combinamos cálculo, diseño, modelado y experiencia de campo para generar soluciones técnicamente confiables, ejecutables y alineadas con las normas y especificaciones de cada cliente.",
   image: { src: "/images/ingenieria.webp", alt: "Vista aérea de una planta industrial" },
   cta: { label: "Consultar por ingeniería", href: "#contacto" },
-  projectsLink: { label: "Ver proyectos de ingeniería →", href: "#proyectos" },
+  projectsLink: { label: "Ver proyectos de ingeniería", href: "#proyectos" },
   works: [
     "Estructuras metálicas",
     "Equipos de proceso",
@@ -170,7 +170,7 @@ export const gestion: ServiceV2 & { areas: readonly ServiceArea[] } = {
     alt: "Obra de reacondicionamiento del HRSG 8 en Central Costanera",
   },
   cta: { label: "Consultar por gestión de proyectos", href: "#contacto" },
-  projectsLink: { label: "Ver proyectos de gestión →", href: "#proyectos" },
+  projectsLink: { label: "Ver proyectos de gestión", href: "#proyectos" },
   areas: [
     {
       title: "Planificación y programación",

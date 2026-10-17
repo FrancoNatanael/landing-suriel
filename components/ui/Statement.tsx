@@ -5,16 +5,21 @@ type Tone = "light" | "dark";
 type StatementProps = {
   tone?: Tone;
   as?: "p" | "h2" | "h3";
+  /** "lg" para frases cortas de apertura; "md" para frases largas (bajadas de servicio). */
+  size?: "lg" | "md";
   className?: string;
   children: React.ReactNode;
 };
 
 /** Frase grande de apertura de una sección. Peso normal, interlineado ajustado. */
-export function Statement({ tone = "light", as: Tag = "p", className, children }: StatementProps) {
+export function Statement({ tone = "light", as: Tag = "p", size = "lg", className, children }: StatementProps) {
   return (
     <Tag
       className={cn(
-        "max-w-4xl text-2xl font-normal leading-statement md:text-3xl lg:text-4xl xl:text-statement",
+        "max-w-4xl font-normal leading-statement",
+        size === "lg"
+          ? "text-2xl md:text-3xl lg:text-4xl xl:text-statement"
+          : "text-xl md:text-2xl lg:text-3xl",
         tone === "dark" ? "text-white" : "text-heading",
         className,
       )}
