@@ -86,7 +86,7 @@ export const contactSection = {
 } as const;
 
 export const footer = {
-  tagline: "Ingeniería, inspección y obras industriales desde 2012.",
+  tagline: "Ingeniería aplicada a proyectos industriales.",
   navLabel: "Navegación",
   contactLabel: "Contacto",
   copyright:

@@ -23,8 +23,20 @@ export const navDesktop: readonly NavItem[] = [
   { label: "Proyectos", href: "#proyectos" },
 ];
 
-/** Menú móvil y footer: suman "Inicio". Industrias no está en el menú (decisión D2). */
-export const navFull: readonly NavItem[] = [{ label: "Inicio", href: "#inicio" }, ...navDesktop];
+/**
+ * Menú móvil y footer: las 8 entradas de la arquitectura del cliente, con "Inicio".
+ * Industrias no está en el menú (decisión D2). La barra de escritorio puede mostrar menos.
+ */
+export const navFull: readonly NavItem[] = [
+  { label: "Inicio", href: "#inicio" },
+  { label: "Nosotros", href: "#nosotros" },
+  { label: "Ingeniería", href: "#ingenieria" },
+  { label: "Inspección & QA/QC", href: "#inspeccion-qaqc" },
+  { label: "Gestión de proyectos", href: "#gestion-de-proyectos" },
+  { label: "Outsourcing", href: "#outsourcing" },
+  { label: "Proyectos", href: "#proyectos" },
+  { label: "Contacto", href: "#contacto" },
+];
 
 // ---------------------------------------------------------------- Hero
 
