@@ -16,6 +16,7 @@ const RULES = [
   [/\[X\]/, "plazo pendiente ([X])"],
   [/BORRADOR/i, "nota de borrador"],
   [/Cliente \d/, "logo de cliente provisorio"],
+  [/\u2014/, "raya larga (em dash) en el texto"],
 ];
 
 let failures = 0;

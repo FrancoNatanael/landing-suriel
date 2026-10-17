@@ -1,4 +1,6 @@
 import { contact } from "@/content/contact";
+import { whatsapp } from "@/content/es";
+import { servicesV2 } from "@/content/v2";
 import { site, siteUrl } from "@/content/site";
 import { Footer } from "@/components/layout/Footer";
 import { Header } from "@/components/layout/Header";
@@ -27,6 +29,14 @@ const organizationJsonLd = {
   email: contact.email,
   telephone: "+5491163672440",
   sameAs: [contact.linkedin],
+  hasOfferCatalog: {
+    "@type": "OfferCatalog",
+    name: "Servicios",
+    itemListElement: servicesV2.map((service) => ({
+      "@type": "Offer",
+      itemOffered: { "@type": "Service", name: service.title, description: service.body },
+    })),
+  },
 };
 
 export default function Home() {
@@ -52,7 +62,9 @@ export default function Home() {
         <Contact />
       </main>
       <Footer />
-      <WhatsAppFloat />
+      <aside aria-label={whatsapp.label}>
+        <WhatsAppFloat />
+      </aside>
     </>
   );
 }

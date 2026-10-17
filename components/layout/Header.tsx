@@ -73,6 +73,7 @@ export function Header({ items = navDesktop, mobileItems = navFull }: HeaderProp
           className="focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-navy"
         >
           <Logo
+            priority
             className={cn(
               "transition-[filter] duration-250",
               solid && !open ? "brightness-0" : "brightness-0 invert",
