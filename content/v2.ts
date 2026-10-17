@@ -16,13 +16,11 @@ export type NavItem = { label: string; href: string };
 
 /** Barra de escritorio: el logo hace de "Inicio" (decisión D3). */
 export const navDesktop: readonly NavItem[] = [
-  { label: "Nosotros", href: "#nosotros" },
   { label: "Ingeniería", href: "#ingenieria" },
   { label: "Inspección & QA/QC", href: "#inspeccion-qaqc" },
   { label: "Gestión de proyectos", href: "#gestion-de-proyectos" },
   { label: "Outsourcing", href: "#outsourcing" },
   { label: "Proyectos", href: "#proyectos" },
-  { label: "Contacto", href: "#contacto" },
 ];
 
 /** Menú móvil y footer: suman "Inicio". Industrias no está en el menú (decisión D2). */
