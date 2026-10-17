@@ -4,8 +4,7 @@ import { useState } from "react";
 import { Placeholder } from "@/components/ui/Placeholder";
 import { buttonClasses } from "@/components/ui/Button";
 import { formCc, formEndpoint, formRecipient, formSubject } from "@/content/contact";
-import { contactSection } from "@/content/es";
-import { industriesV2 } from "@/content/v2";
+import { contactSection, industriesV2 } from "@/content/es";
 import { cn } from "@/lib/utils";
 
 const f = contactSection.form;

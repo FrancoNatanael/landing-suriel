@@ -4,8 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { ButtonLink } from "@/components/ui/Button";
 import { ChannelIcon } from "@/components/ui/ChannelIcon";
 import { contact } from "@/content/contact";
-import { header, hero } from "@/content/es";
-import { navDesktop, navFull, type NavItem } from "@/content/v2";
+import { header, hero, navDesktop, navFull, type NavItem } from "@/content/es";
 import { cn } from "@/lib/utils";
 import { Logo } from "./Logo";
 

@@ -2,8 +2,7 @@ import { ChannelIcon } from "@/components/ui/ChannelIcon";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { Value } from "@/components/ui/Value";
 import { channels } from "@/content/contact";
-import { footer, header } from "@/content/es";
-import { navFull } from "@/content/v2";
+import { footer, header, navFull } from "@/content/es";
 import { Logo } from "./Logo";
 
 const link =

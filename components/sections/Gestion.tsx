@@ -1,5 +1,5 @@
 import { NumberedList, NumberedRow } from "@/components/ui/NumberedList";
-import { gestion } from "@/content/v2";
+import { gestion } from "@/content/es";
 import { ServiceBlock } from "./ServiceBlock";
 
 const labels = { areas: "Áreas de trabajo" } as const;

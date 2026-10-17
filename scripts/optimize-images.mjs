@@ -30,7 +30,7 @@ const HRSG = `${P}/GESTION DE PROYECTOS/PROYECTO EJECUTIVO Y DIRECCIÓN DE OBRA 
 const STOCK = "SERVICIOS/IMAGENES STOCK";
 
 // to: destino dentro de public/images · width: ancho máximo · maxKB: tope de peso
-// from: ruta dentro del origen · fromRepo: ruta dentro del repo (para reoptimizar)
+// from: ruta dentro del origen · fromRepo: ruta dentro del repo (para reoptimizar una imagen ya cargada)
 const job = (to, from, width = 1600, maxKB = 260) => ({ to, from, width, maxKB });
 const MANIFEST = [
   // Ingeniería · percha de izaje (2 renders y 3 imágenes de análisis)
@@ -65,8 +65,6 @@ const MANIFEST = [
   // Industrias · fotos de stock del cliente elegidas
   job("industrias/oil-and-gas.webp", `${STOCK}/OIL AND GAS/arvind-vallabh-kjk90_OSGZU-unsplash.jpg`, 2000, 300),
   job("industrias/energia.webp", `${STOCK}/GENERACION ENERGIA/adigun-ampa-9U0vAXekzgU-unsplash.jpg`, 2000, 300),
-  // Reoptimización de una imagen que ya estaba en el repo (pesaba 810 KB)
-  { to: "ingenieria.webp", fromRepo: "public/images/ingenieria.jpg", width: 1600, maxKB: 400 },
 ];
 
 const kb = (n) => `${Math.round(n / 1024)} KB`;

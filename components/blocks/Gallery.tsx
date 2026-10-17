@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { useRef, useState } from "react";
-import type { Img } from "@/content/v2";
+import type { Img } from "@/content/es";
 import { cn } from "@/lib/utils";
 
 const text = {

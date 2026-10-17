@@ -1,5 +1,5 @@
 import { Eyebrow } from "@/components/ui/Eyebrow";
-import { ingenieria } from "@/content/v2";
+import { ingenieria } from "@/content/es";
 import { ServiceBlock } from "./ServiceBlock";
 
 const labels = {

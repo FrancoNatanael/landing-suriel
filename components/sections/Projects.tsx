@@ -5,7 +5,7 @@ import { ProjectCard } from "@/components/blocks/ProjectCard";
 import { ProjectDialog } from "@/components/blocks/ProjectDialog";
 import { LabeledGrid } from "@/components/ui/LabeledGrid";
 import { Statement } from "@/components/ui/Statement";
-import { projectsV2, visibleProjects } from "@/content/v2";
+import { projectsV2, visibleProjects } from "@/content/es";
 
 const text = {
   open: "Ver proyecto",

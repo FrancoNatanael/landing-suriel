@@ -4,7 +4,7 @@ import { NumberedList, NumberedRow } from "@/components/ui/NumberedList";
 import { PhotoFrame } from "@/components/ui/PhotoFrame";
 import { Statement } from "@/components/ui/Statement";
 import { ButtonLink } from "@/components/ui/Button";
-import { industriesV2 } from "@/content/v2";
+import { industriesV2 } from "@/content/es";
 
 const link = { label: "Ver proyectos", href: "#proyectos" } as const;
 const placeholderLabel = "foto: minería";

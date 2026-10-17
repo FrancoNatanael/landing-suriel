@@ -1,6 +1,6 @@
 import { NumberedList, NumberedRow } from "@/components/ui/NumberedList";
 import { Statement } from "@/components/ui/Statement";
-import { outsourcing } from "@/content/v2";
+import { outsourcing } from "@/content/es";
 import { ServiceBlock } from "./ServiceBlock";
 
 const labels = { steps: "Cómo trabajamos", advantages: "Ventajas" } as const;

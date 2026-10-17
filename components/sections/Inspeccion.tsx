@@ -1,4 +1,4 @@
-import { inspeccion } from "@/content/v2";
+import { inspeccion } from "@/content/es";
 import { ServiceBlock } from "./ServiceBlock";
 
 export function Inspeccion() {

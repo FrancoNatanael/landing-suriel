@@ -2,7 +2,7 @@ import { ArrowIcon } from "@/components/ui/ArrowIcon";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { PhotoFrame } from "@/components/ui/PhotoFrame";
 import { Highlight, Statement } from "@/components/ui/Statement";
-import { servicesV2 } from "@/content/v2";
+import { servicesV2 } from "@/content/es";
 
 const band = {
   eyebrow: "Servicios",

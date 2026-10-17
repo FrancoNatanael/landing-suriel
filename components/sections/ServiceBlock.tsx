@@ -3,7 +3,7 @@ import { ButtonLink } from "@/components/ui/Button";
 import { LabeledGrid } from "@/components/ui/LabeledGrid";
 import { PhotoFrame } from "@/components/ui/PhotoFrame";
 import { Statement } from "@/components/ui/Statement";
-import type { ServiceV2 } from "@/content/v2";
+import type { ServiceV2 } from "@/content/es";
 import { cn } from "@/lib/utils";
 
 type ServiceBlockProps = {

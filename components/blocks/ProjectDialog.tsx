@@ -2,7 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import { Eyebrow } from "@/components/ui/Eyebrow";
-import type { ProjectV2 } from "@/content/v2";
+import type { ProjectV2 } from "@/content/es";
 import { Gallery } from "./Gallery";
 
 type ProjectDialogProps = {

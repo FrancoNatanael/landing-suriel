@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { useRef, useState } from "react";
 import { ArrowIcon } from "@/components/ui/ArrowIcon";
-import type { ProjectV2 } from "@/content/v2";
+import type { ProjectV2 } from "@/content/es";
 import { cn } from "@/lib/utils";
 
 type ProjectCardProps = {

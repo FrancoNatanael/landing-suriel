@@ -1,6 +1,5 @@
 import { contact } from "@/content/contact";
-import { whatsapp } from "@/content/es";
-import { servicesV2 } from "@/content/v2";
+import { servicesV2, whatsapp } from "@/content/es";
 import { site, siteUrl } from "@/content/site";
 import { Footer } from "@/components/layout/Footer";
 import { Header } from "@/components/layout/Header";
