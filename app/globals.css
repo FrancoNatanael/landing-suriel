@@ -54,7 +54,7 @@
   --animate-rise: rise 1.1s var(--ease-brand) both;
 
   /* Marquee de logos (M6) */
-  --animate-marquee: marquee 60s linear infinite;
+  --animate-marquee: marquee 35s linear infinite;
 
   /* Mensaje de éxito del formulario (M10) */
   --animate-fade-in: fade-in 0.9s var(--ease-brand) both;

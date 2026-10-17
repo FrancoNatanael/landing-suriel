@@ -23,24 +23,15 @@ export const hero = {
 } as const;
 
 export const clients = {
-  label: "Empresas que ya trabajan con nosotros",
-  // Provisorio: nombres de los clientes de los proyectos, como texto, hasta tener los logos reales (R10).
-  names: [
-    "Futura",
-    "Tecpetrol",
-    "Pluspetrol",
-    "Pecom",
-    "ENAP Sipetrol",
-    "Central Puerto",
-    "Central Costanera",
-    "Ternium",
-    "Grupo MTR",
-    "IMC",
-    "Tycsa",
-    "Contreras",
-    "SESA",
-    "Semeniuk",
-    "Combumont",
+  label: "Empresas que confían en SURIEL",
+  // Orden de aparición en la franja. width/height son las proporciones reales de cada archivo.
+  logos: [
+    { name: "Shell", src: "/logos/clientes/shell.webp", width: 548, height: 508 },
+    { name: "Chevron", src: "/logos/clientes/chevron.webp", width: 483, height: 540 },
+    { name: "Pan American Energy", src: "/logos/clientes/pan-american-energy.webp", width: 800, height: 320 },
+    { name: "TGN", src: "/logos/clientes/tgn.webp", width: 757, height: 406 },
+    { name: "ENAP Sipetrol", src: "/logos/clientes/enap-sipetrol.webp", width: 411, height: 112 },
+    { name: "Futura", src: "/logos/clientes/futura.webp", width: 220, height: 315 },
   ],
 } as const;
 
