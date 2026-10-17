@@ -24,7 +24,7 @@ export const hero = {
   image: { src: "/images/hero-image.webp", alt: "Planta industrial" },
   primaryCta: { label: "Contactar", href: "#contacto" },
   secondaryCta: { label: "Ver proyectos", href: "#proyectos" },
-  sectors: ["Oil & Gas", "Energía", "Siderurgia", "Minería", "Otros sectores"],
+  sectors: ["Oil & Gas", "Energía", "Siderurgia", "Otros sectores"],
 } as const;
 
 export const clients = {
@@ -134,6 +134,12 @@ export const navFull: readonly NavItem[] = [
   { label: "Proyectos", href: "#proyectos" },
   { label: "Contacto", href: "#contacto" },
 ];
+
+/**
+ * Menú móvil: las mismas opciones que la barra de escritorio, más "Inicio" (en escritorio lo hace el logo).
+ * Nosotros y Contacto quedan fuera; "Contactar" es el botón al pie del panel.
+ */
+export const navMobile: readonly NavItem[] = [{ label: "Inicio", href: "#inicio" }, ...navDesktop];
 
 // ---------------------------------------------------------------- Servicios
 
@@ -329,15 +335,14 @@ export type IndustryV2 = {
 export const industriesV2 = {
   eyebrow: "Industrias",
   title: "Soluciones para distintos sectores industriales.",
-  intro:
-    "Adaptamos cada proyecto a los requerimientos técnicos, operativos y normativos de cada sector.",
+  intro: "Adaptamos cada proyecto a los requerimientos técnicos, operativos y normativos de cada sector.",
   items: [
     {
       slug: "oil-and-gas",
       n: "01",
       name: "Oil & Gas",
       summary:
-        "Ingeniería y asesoramiento para empresas que fabrican equipos destinados a la producción, tratamiento, transporte y almacenamiento de hidrocarburos.",
+        "Ingeniería y asesoramiento para fabricantes de equipos de producción, tratamiento, transporte y almacenamiento de hidrocarburos.",
       tags: ["Piping", "Equipos de proceso", "Skids", "Recipientes a presión"],
       image: { src: "/images/industrias/oil-and-gas.webp", alt: "Plataforma petrolera en el mar" },
     },
@@ -346,7 +351,7 @@ export const industriesV2 = {
       n: "02",
       name: "Energía",
       summary:
-        "Ingeniería, inspección, montaje y asesoramiento en paradas de planta para proyectos de generación y producción de energía.",
+        "Ingeniería, inspección, montaje y asesoramiento en paradas de planta para generación y producción de energía.",
       tags: ["Centrales eléctricas", "Calderas", "Piping", "Estructuras"],
       image: { src: "/images/industrias/energia.webp", alt: "Torre y equipos de una planta de generación" },
     },
@@ -355,26 +360,16 @@ export const industriesV2 = {
       n: "03",
       name: "Siderurgia",
       summary:
-        "Soluciones de ingeniería y soporte técnico para instalaciones y equipos de la industria siderúrgica y metalúrgica.",
+        "Ingeniería y soporte técnico para instalaciones y equipos de la industria siderúrgica y metalúrgica.",
       tags: ["Estructuras metálicas", "Piping", "Soportación", "Equipos"],
       image: { src: "/images/siderurgia.webp", alt: "Colada de acero en una planta siderúrgica" },
     },
     {
-      slug: "mineria",
-      n: "04",
-      name: "Minería",
-      summary:
-        "Ingeniería y soporte técnico para instalaciones, equipos y sistemas de la industria minera.",
-      tags: ["Estructuras metálicas", "Piping", "Equipos de proceso", "Sistemas de transporte"],
-      // Sin foto del cliente ni existente: placeholder marcado hasta recibirla.
-      image: null,
-    },
-    {
       slug: "otros-sectores",
-      n: "05",
+      n: "04",
       name: "Otros sectores",
       summary: "También acompañamos proyectos de:",
-      tags: ["Alimentos", "Papelera", "Energía nuclear", "Automotriz", "Consumo masivo"],
+      tags: ["Minería", "Alimentos", "Papelera", "Energía nuclear", "Automotriz", "Consumo masivo"],
       image: { src: "/images/alimenticia.webp", alt: "Línea de producción de una planta de alimentos", provisional: true },
     },
   ] satisfies readonly IndustryV2[],

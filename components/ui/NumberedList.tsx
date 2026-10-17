@@ -27,6 +27,8 @@ type NumberedRowProps = {
   /** Miniatura a la derecha (siempre visible). Por debajo de `md` va debajo del texto. */
   media?: React.ReactNode;
   tone?: Tone;
+  /** Fila más baja (Industrias). */
+  dense?: boolean;
   className?: string;
 };
 
@@ -34,15 +36,16 @@ type NumberedRowProps = {
  * Fila numerada: [01], nombre, texto y miniatura opcional, separada por una línea fina.
  * Se usa en Industrias, en las áreas de Gestión de proyectos y en las ventajas de Outsourcing.
  */
-export function NumberedRow({ index, title, text, tags, media, tone = "light", className }: NumberedRowProps) {
+export function NumberedRow({ index, title, text, tags, media, tone = "light", dense = false, className }: NumberedRowProps) {
   const dark = tone === "dark";
   return (
     <li
       className={cn(
-        "grid gap-x-6 gap-y-4 border-b py-6 md:gap-x-8 md:py-8",
+        "grid gap-x-6 gap-y-3 border-b md:gap-x-8",
+        dense ? "py-5 md:py-6" : "py-6 md:py-8",
         dark ? "border-white/28" : "border-line",
         media
-          ? "grid-cols-[2.5rem_minmax(0,1fr)] md:grid-cols-[4rem_minmax(0,1fr)_minmax(0,1.2fr)_12rem] lg:grid-cols-[4rem_minmax(0,1fr)_minmax(0,1.2fr)_16rem]"
+          ? "grid-cols-[2.5rem_minmax(0,1fr)] md:grid-cols-[4rem_minmax(0,1fr)_minmax(0,1.4fr)_10rem] lg:grid-cols-[4rem_minmax(0,1fr)_minmax(0,1.4fr)_12rem]"
           : "grid-cols-[2.5rem_minmax(0,1fr)] md:grid-cols-[4rem_minmax(0,1fr)_minmax(0,1.4fr)]",
         className,
       )}
