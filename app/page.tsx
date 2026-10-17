@@ -1,3 +1,4 @@
+import { contact } from "@/content/contact";
 import { site, siteUrl } from "@/content/site";
 import { Footer } from "@/components/layout/Footer";
 import { Header } from "@/components/layout/Header";
@@ -19,6 +20,9 @@ const organizationJsonLd = {
   logo: `${siteUrl}/logos/logo-suriel.svg`,
   description: site.description,
   foundingDate: site.foundingDate,
+  email: contact.email,
+  telephone: "+5491163672440",
+  sameAs: [contact.linkedin],
 };
 
 export default function Home() {

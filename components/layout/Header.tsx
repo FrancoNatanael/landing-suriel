@@ -2,6 +2,8 @@
 
 import { useEffect, useRef, useState } from "react";
 import { ButtonLink } from "@/components/ui/Button";
+import { ChannelIcon } from "@/components/ui/ChannelIcon";
+import { contact } from "@/content/contact";
 import { header, hero, nav } from "@/content/es";
 import { cn } from "@/lib/utils";
 import { Logo } from "./Logo";
@@ -59,45 +61,65 @@ export function Header() {
           onClick={() => setOpen(false)}
           className="focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-navy"
         >
-          <Logo className={cn("transition-[filter] duration-250", solid && !open ? "brightness-0" : "brightness-0 invert")} />
+          <Logo
+            className={cn(
+              "transition-[filter] duration-250",
+              solid && !open ? "brightness-0" : "brightness-0 invert",
+            )}
+          />
         </a>
 
-        <nav aria-label={header.menuLabel} className="hidden items-center gap-8 nav:flex">
-          {nav.map((item) => (
-            <a
-              key={item.href}
-              href={item.href}
-              className="text-base leading-body underline-offset-4 hover:underline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-navy"
-            >
-              {item.label}
-            </a>
-          ))}
-        </nav>
-
-        <button
-          type="button"
-          aria-expanded={open}
-          aria-controls="menu-movil"
-          onClick={() => setOpen((v) => !v)}
-          aria-label={open ? header.menuClose : header.menuOpen}
-          className="flex size-12 items-center justify-center text-current focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-current nav:hidden"
-        >
-          <svg
-            viewBox="0 0 24 24"
-            aria-hidden="true"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            className="size-8"
+        <div className="flex items-center gap-2 nav:gap-8">
+          <nav
+            aria-label={header.menuLabel}
+            className="hidden items-center gap-8 nav:flex"
           >
-            {open ? (
-              <path d="M6 6l12 12M18 6L6 18" />
-            ) : (
-              <path d="M4 7h16M4 12h16M4 17h16" />
-            )}
-          </svg>
-        </button>
+            {nav.map((item) => (
+              <a
+                key={item.href}
+                href={item.href}
+                className="text-base leading-body underline-offset-4 hover:underline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-navy"
+              >
+                {item.label}
+              </a>
+            ))}
+          </nav>
+
+          <a
+            href={contact.linkedin}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={header.linkedinLabel}
+            className="flex size-11 items-center justify-center text-current transition-opacity duration-300 hover:opacity-70 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-current"
+          >
+            <ChannelIcon name="linkedin" className="size-6" />
+          </a>
+
+          <button
+            type="button"
+            aria-expanded={open}
+            aria-controls="menu-movil"
+            onClick={() => setOpen((v) => !v)}
+            aria-label={open ? header.menuClose : header.menuOpen}
+            className="flex size-12 items-center justify-center text-current focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-current nav:hidden"
+          >
+            <svg
+              viewBox="0 0 24 24"
+              aria-hidden="true"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              className="size-8"
+            >
+              {open ? (
+                <path d="M6 6l12 12M18 6L6 18" />
+              ) : (
+                <path d="M4 7h16M4 12h16M4 17h16" />
+              )}
+            </svg>
+          </button>
+        </div>
       </div>
 
       <div

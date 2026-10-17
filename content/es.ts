@@ -11,6 +11,7 @@ export const header = {
   menuOpen: "Menú",
   menuClose: "Cerrar",
   menuLabel: "Menú principal",
+  linkedinLabel: "LinkedIn de SURIEL (se abre en una pestaña nueva)",
 } as const;
 
 export const whatsapp = {
@@ -52,8 +53,8 @@ export const about = {
   ],
   stats: [
     { value: "15", label: "Años de experiencia", placeholder: false },
-    { value: "+30", label: "Clientes", placeholder: false },
-    { value: "5", label: "Países alcanzados", placeholder: false },
+    { value: "+50", label: "Clientes", placeholder: false },
+    { value: "+150", label: "Proyectos realizados", placeholder: false },
   ],
   imageLabel: "foto: obra o planta",
   imageSrc: "/images/nosotros.webp",
@@ -268,6 +269,9 @@ export const contactSection = {
     windowOptions: ["Mañana", "Tarde", "Indistinto"],
     submit: "Enviar consulta",
     errorContact: "Indicá un mail o un teléfono para responderte.",
+    sending: "Enviando…",
+    errorSend:
+      "No pudimos enviar tu consulta. Probá de nuevo en unos minutos.",
     successTitle: "Recibimos tu consulta.",
     successBefore: "Te respondemos dentro de ",
     successToken: "[X]",

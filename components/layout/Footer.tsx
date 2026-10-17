@@ -1,3 +1,4 @@
+import { ChannelIcon } from "@/components/ui/ChannelIcon";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { Value } from "@/components/ui/Value";
 import { channels } from "@/content/contact";
@@ -51,9 +52,13 @@ export function Footer() {
                 <li key={channel.label} className="border-b border-white/28">
                   <a
                     href={channel.href}
+                    {...(channel.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
                     className={`flex items-center justify-between gap-6 py-3 text-base leading-body text-white ${link}`}
                   >
-                    <span className="text-navy-soft">{channel.label}</span>
+                    <span className="flex items-center gap-3 text-navy-soft">
+                      <ChannelIcon name={channel.icon} className="size-5 shrink-0" />
+                      {channel.label}
+                    </span>
                     <span>
                       <Value text={channel.value} />
                     </span>

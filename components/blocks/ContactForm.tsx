@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { Placeholder } from "@/components/ui/Placeholder";
 import { buttonClasses } from "@/components/ui/Button";
+import { formCc, formEndpoint, formRecipient, formSubject } from "@/content/contact";
 import { contactSection, sectors } from "@/content/es";
 import { cn } from "@/lib/utils";
 
@@ -43,9 +44,12 @@ function Field({
 export function ContactForm() {
   const [sent, setSent] = useState(false);
   const [error, setError] = useState(false);
+  const [sending, setSending] = useState(false);
+  const [failed, setFailed] = useState(false);
 
-  function onSubmit(e: React.FormEvent<HTMLFormElement>) {
+  async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
+    if (sending) return;
     const data = new FormData(e.currentTarget);
     const email = String(data.get("email") ?? "").trim();
     const phone = String(data.get("phone") ?? "").trim();
@@ -54,8 +58,45 @@ export function ContactForm() {
       return;
     }
     setError(false);
-    // Fase 12: acá se llama a submitContact(data) (Web3Forms). Por ahora no se envía nada.
-    setSent(true);
+    setFailed(false);
+
+    // Campo trampa para bots: si viene completo, se simula el éxito sin enviar.
+    if (String(data.get("_honey") ?? "")) {
+      setSent(true);
+      return;
+    }
+
+    const payload: Record<string, string> = {
+      _subject: formSubject,
+      _template: "table",
+      _captcha: "false",
+    };
+    for (const [key, value] of data.entries()) {
+      if (key === "_honey") continue;
+      const text = String(value).trim();
+      if (text) payload[key] = text;
+    }
+    if (email) payload._replyto = email;
+    if (formCc) payload._cc = formCc;
+
+    setSending(true);
+    try {
+      if (!formRecipient) throw new Error("NEXT_PUBLIC_FORM_RECIPIENT sin definir");
+      const res = await fetch(formEndpoint, {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify(payload),
+      });
+      const result = await res.json().catch(() => null);
+      if (!res.ok || result?.success === "false" || result?.success === false) {
+        throw new Error("send failed");
+      }
+      setSent(true);
+    } catch {
+      setFailed(true);
+    } finally {
+      setSending(false);
+    }
   }
 
   if (sent) {
@@ -78,6 +119,14 @@ export function ContactForm() {
       onSubmit={onSubmit}
       className="border border-white bg-white p-6 lg:p-10"
     >
+      <input
+        type="text"
+        name="_honey"
+        tabIndex={-1}
+        autoComplete="off"
+        aria-hidden="true"
+        className="hidden"
+      />
       <div className="grid gap-x-6 gap-y-6 sm:grid-cols-2">
         <Field label={f.name} name="name" required>
           <input id="name" name="name" type="text" required autoComplete="name" className={control} />
@@ -133,9 +182,19 @@ export function ContactForm() {
         </p>
       ) : null}
 
+      {failed ? (
+        <p role="alert" className="mt-6 text-base leading-body text-danger">
+          {f.errorSend}
+        </p>
+      ) : null}
+
       <div className="mt-8 flex sm:justify-end">
-        <button type="submit" className={buttonClasses("submit", "w-full sm:w-auto")}>
-          {f.submit}
+        <button
+          type="submit"
+          disabled={sending}
+          className={buttonClasses("submit", "w-full sm:w-auto disabled:opacity-60")}
+        >
+          {sending ? f.sending : f.submit}
         </button>
       </div>
     </form>
