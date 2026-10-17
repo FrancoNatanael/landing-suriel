@@ -248,10 +248,7 @@ export const gestion: ServiceV2 & { areas: readonly ServiceArea[] } = {
   title: "Gestión de proyectos",
   lead: "Gestión integral de proyectos industriales, desde la planificación inicial hasta la ejecución, el montaje y la puesta en marcha.",
   body: "Adaptamos nuestra participación al alcance de cada proyecto.",
-  image: {
-    src: "/images/proyectos/reacondicionamiento-hrsg8/01.webp",
-    alt: "Obra de reacondicionamiento del HRSG 8 en Central Costanera",
-  },
+  image: { src: "/images/obras.webp", alt: "Estructuras metálicas y cañerías aisladas en una planta industrial" },
   cta: consultar,
   areas: [
     {
@@ -290,8 +287,7 @@ export const outsourcing: ServiceV2 & {
   title: "Outsourcing profesional administrado",
   lead: "Incorporamos profesionales a tu equipo de trabajo.",
   body: "Personal calificado para tus proyectos y operaciones, sin ampliar tu estructura permanente.",
-  // Provisoria: el flyer del cliente no se usa. Se reemplaza por una foto limpia cuando llegue.
-  image: { src: "/images/construcciones.webp", alt: "Estructura industrial en construcción", provisional: true },
+  image: { src: "/images/outsourcing-equipo.webp", alt: "Equipo de trabajadores con casco y chaleco sobre el armado de acero de una obra" },
   cta: consultar,
   steps: [
     {
@@ -325,24 +321,19 @@ export type IndustryV2 = {
   slug: string;
   n: string;
   name: string;
-  summary: string;
   /** Etiquetas de lo que se trabaja en el sector. */
   tags: readonly string[];
-  /** null = sin foto: se muestra un placeholder marcado. */
-  image: Img | null;
+  image: Img;
 };
 
 export const industriesV2 = {
   eyebrow: "Industrias",
   title: "Soluciones para distintos sectores industriales.",
-  intro: "Adaptamos cada proyecto a los requerimientos técnicos, operativos y normativos de cada sector.",
   items: [
     {
       slug: "oil-and-gas",
       n: "01",
       name: "Oil & Gas",
-      summary:
-        "Ingeniería y asesoramiento para fabricantes de equipos de producción, tratamiento, transporte y almacenamiento de hidrocarburos.",
       tags: ["Piping", "Equipos de proceso", "Skids", "Recipientes a presión"],
       image: { src: "/images/industrias/oil-and-gas.webp", alt: "Plataforma petrolera en el mar" },
     },
@@ -350,8 +341,6 @@ export const industriesV2 = {
       slug: "energia",
       n: "02",
       name: "Energía",
-      summary:
-        "Ingeniería, inspección, montaje y asesoramiento en paradas de planta para generación y producción de energía.",
       tags: ["Centrales eléctricas", "Calderas", "Piping", "Estructuras"],
       image: { src: "/images/industrias/energia.webp", alt: "Torre y equipos de una planta de generación" },
     },
@@ -359,8 +348,6 @@ export const industriesV2 = {
       slug: "siderurgia",
       n: "03",
       name: "Siderurgia",
-      summary:
-        "Ingeniería y soporte técnico para instalaciones y equipos de la industria siderúrgica y metalúrgica.",
       tags: ["Estructuras metálicas", "Piping", "Soportación", "Equipos"],
       image: { src: "/images/siderurgia.webp", alt: "Colada de acero en una planta siderúrgica" },
     },
@@ -368,7 +355,6 @@ export const industriesV2 = {
       slug: "otros-sectores",
       n: "04",
       name: "Otros sectores",
-      summary: "También acompañamos proyectos de:",
       tags: ["Minería", "Alimentos", "Papelera", "Energía nuclear", "Automotriz", "Consumo masivo"],
       image: { src: "/images/alimenticia.webp", alt: "Línea de producción de una planta de alimentos", provisional: true },
     },
