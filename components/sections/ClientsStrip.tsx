@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { clients } from "@/content/es";
 
 export function ClientsStrip() {
@@ -24,15 +23,12 @@ export function ClientsStrip() {
                     : "flex shrink-0 gap-12 pr-12"
                 }
               >
-                {clients.logos.map((logo) => (
-                  <li key={logo.name} className="shrink-0">
-                    <Image
-                      src={logo.src}
-                      alt={logo.name}
-                      width={160}
-                      height={160}
-                      className="h-16 w-40 object-contain"
-                    />
+                {clients.names.map((name) => (
+                  <li
+                    key={name}
+                    className="shrink-0 whitespace-nowrap text-lg font-semibold uppercase leading-body text-white/80"
+                  >
+                    {name}
                   </li>
                 ))}
               </ul>

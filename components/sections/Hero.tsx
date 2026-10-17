@@ -65,7 +65,7 @@ export function Hero() {
             </ButtonLink>
           </div>
           <p
-            className="animate-rise text-base md:text-lg leading-body text-white"
+            className="animate-rise text-base leading-body text-white md:text-lg lg:text-right"
             style={rise(4)}
           >
             {hero.sectors.join("  /  ")}

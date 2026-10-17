@@ -1,61 +1,56 @@
-import Image from "next/image";
-import { StatItem } from "@/components/blocks/StatItem";
-import { Eyebrow } from "@/components/ui/Eyebrow";
-import { ImagePlaceholder } from "@/components/ui/ImagePlaceholder";
+import { CrossCell } from "@/components/ui/CrossCell";
+import { LabeledGrid } from "@/components/ui/LabeledGrid";
+import { PhotoFrame } from "@/components/ui/PhotoFrame";
+import { Highlight, Statement } from "@/components/ui/Statement";
 import { about } from "@/content/es";
 
 export function About() {
+  const { statement } = about;
   return (
     <section
       id="nosotros"
       className="bg-surface px-6 py-24 md:px-8 md:py-32 lg:px-10 lg:py-40"
     >
-      <div className="mx-auto grid max-w-360 gap-12 md:gap-16 lg:grid-cols-2 lg:gap-24">
-        <div>
-          <div className="reveal">
-            <Eyebrow className="mb-6">{about.eyebrow}</Eyebrow>
-            <h2 className="max-w-heading text-3xl font-medium leading-heading text-heading md:text-4xl lg:text-title">
-              {about.title}
-            </h2>
-          </div>
+      <div className="mx-auto max-w-360">
+        <LabeledGrid label={about.eyebrow} className="reveal">
+          <Statement as="h2">
+            {statement.before}
+            <Highlight>{statement.highlight}</Highlight>
+            {statement.after}
+          </Statement>
 
-          <div className="reveal mt-8 flex max-w-prose flex-col gap-6">
-            {about.paragraphs.map((text) => (
-              <p key={text} className="text-base leading-body text-body">
-                {text}
-              </p>
+          <div className="mt-12 grid gap-8 md:mt-16 md:grid-cols-2 md:gap-12">
+            {about.columns.map((paragraphs) => (
+              <div key={paragraphs[0]} className="flex flex-col gap-6">
+                {paragraphs.map((text) => (
+                  <p key={text} className="text-base leading-body text-body">
+                    {text}
+                  </p>
+                ))}
+              </div>
             ))}
           </div>
+        </LabeledGrid>
 
-          <div className="reveal mt-12 grid grid-cols-3 border-y border-line md:mt-16">
-            {about.stats.map((stat, i) => (
-              <StatItem
-                key={stat.label}
-                value={stat.value}
-                label={stat.label}
-                placeholder={stat.placeholder}
-                className={i > 0 ? "border-l border-line" : undefined}
-              />
-            ))}
-          </div>
-        </div>
-
-        {about.imageSrc ? (
-          <div className="reveal relative min-h-96 overflow-hidden md:min-h-140">
-            <Image
-              src={about.imageSrc}
-              alt=""
-              fill
-              sizes="(min-width: 64rem) 50vw, 100vw"
-              className="object-cover"
+        <div className="reveal relative mt-16 md:mt-24">
+          <div className="absolute inset-0">
+            <PhotoFrame
+              src={about.image.src}
+              alt={about.image.alt}
+              sizes="(min-width: 90rem) 90rem, 100vw"
+              className="size-full"
             />
           </div>
-        ) : (
-          <ImagePlaceholder
-            label={about.imageLabel}
-            className="reveal min-h-96 p-4 text-sm md:min-h-140"
-          />
-        )}
+          <div aria-hidden="true" className="absolute inset-0 bg-black/35" />
+          <dl className="relative grid min-h-96 grid-cols-1 content-end gap-6 p-4 md:min-h-140 md:grid-cols-3 md:gap-8 md:p-8">
+            {about.stats.map((stat) => (
+              <CrossCell key={stat.label} className="flex flex-col gap-3 p-6 md:p-8">
+                <dd className="order-1 text-5xl font-medium leading-none lg:text-display">{stat.value}</dd>
+                <dt className="order-2 text-xs uppercase leading-body text-white">{stat.label}</dt>
+              </CrossCell>
+            ))}
+          </dl>
+        </div>
       </div>
     </section>
   );

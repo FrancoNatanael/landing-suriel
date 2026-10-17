@@ -20,44 +20,57 @@ export const whatsapp = {
 } as const;
 
 export const hero = {
-  eyebrow: "Expertos en ingeniería",
+  eyebrow: "Ingeniería aplicada a proyectos industriales",
   titleLine1: "Ingeniería, calidad y gestión.",
   titleLine2: "Un solo equipo.",
-  lead: "Diseñamos, fabricamos, montamos e inspeccionamos para la industria. Quien decide habla directo con quien resuelve.",
+  lead: "Soluciones de ingeniería, inspección y asistencia técnica para proyectos industriales, del cálculo a la puesta en servicio.",
   image: { src: "/images/hero-image.webp", alt: "Planta industrial" },
   primaryCta: { label: "Contactar", href: "#contacto" },
   secondaryCta: { label: "Ver proyectos", href: "#proyectos" },
-  sectors: ["Oil & Gas", "Energía", "Química", "Siderurgia", "Alimenticia"],
+  sectors: ["Oil & Gas", "Energía", "Siderurgia", "Minería", "Otros sectores"],
 } as const;
 
 export const clients = {
   label: "Empresas que ya trabajan con nosotros",
-  // Provisorio: todos usan logo1.svg.webp hasta tener los logos reales (P12).
-  logos: [
-    { name: "Cliente 1", src: "/logos/logo1.svg.webp" },
-    { name: "Cliente 2", src: "/logos/logo1.svg.webp" },
-    { name: "Cliente 3", src: "/logos/logo1.svg.webp" },
-    { name: "Cliente 4", src: "/logos/logo1.svg.webp" },
-    { name: "Cliente 5", src: "/logos/logo1.svg.webp" },
-    { name: "Cliente 6", src: "/logos/logo1.svg.webp" },
+  // Provisorio: nombres de los clientes de los proyectos, como texto, hasta tener los logos reales (R10).
+  names: [
+    "Futura",
+    "Tecpetrol",
+    "Pluspetrol",
+    "Pecom",
+    "ENAP Sipetrol",
+    "Central Puerto",
+    "Central Costanera",
+    "Ternium",
+    "Grupo MTR",
+    "IMC",
+    "Tycsa",
+    "Contreras",
+    "SESA",
+    "Semeniuk",
+    "Combumont",
   ],
 } as const;
 
 export const about = {
   eyebrow: "Nosotros",
-  title: "Ingeniería, calidad y gestión en un mismo equipo.",
-  paragraphs: [
-    "SURIEL nació en 2012 y acompaña a plantas de petróleo y gas, energía, química, siderurgia y alimenticia. Diseñamos, fabricamos, montamos e inspeccionamos, siempre con un solo equipo.",
-    "Esa integración es lo que nos distingue: no nos quedamos en detectar el problema, también lo resolvemos. Cada soldadura, ensayo e inspección queda registrado para que quien conduce el proyecto decida con información clara.",
-    "Trabajamos donde se pierde el tiempo: en las interfaces entre disciplinas, proyecto y obra. Por eso nuestra estructura es flexible y no hay intermediarios entre quien decide y quien ejecuta.",
+  statement: { before: "Ingeniería que continúa ", highlight: "más allá del plano", after: "." },
+  columns: [
+    [
+      "Desarrollamos soluciones de ingeniería, inspección y asistencia técnica para proyectos industriales, acompañando a nuestros clientes desde la conceptualización y el cálculo hasta la fabricación, montaje y puesta en servicio.",
+      "Trabajamos para las industrias Oil & Gas, energía, petroquímica, siderúrgica, alimenticia y de procesos, combinando ingeniería, experiencia de campo y conocimiento normativo para desarrollar soluciones técnicamente confiables y ejecutables.",
+    ],
+    [
+      "En Suriel entendemos que un proyecto no termina con la emisión de documentación.",
+      "Por eso acompañamos a nuestros clientes durante las etapas de fabricación, montaje y construcción, brindando soporte técnico, resolución de interferencias, seguimiento de fabricación y asistencia en campo, manteniendo una comunicación directa durante todo el desarrollo del proyecto.",
+    ],
   ],
   stats: [
-    { value: "15", label: "Años de experiencia", placeholder: false },
-    { value: "+50", label: "Clientes", placeholder: false },
-    { value: "+150", label: "Proyectos realizados", placeholder: false },
+    { value: "15", label: "Años de experiencia" },
+    { value: "+50", label: "Clientes" },
+    { value: "+150", label: "Proyectos realizados" },
   ],
-  imageLabel: "foto: obra o planta",
-  imageSrc: "/images/nosotros.webp",
+  image: { src: "/images/nosotros.webp", alt: "Personal de SURIEL en una planta industrial" },
 } as const;
 
 export const services = {
