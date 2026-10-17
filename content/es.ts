@@ -135,11 +135,12 @@ export const navFull: readonly NavItem[] = [
   { label: "Contacto", href: "#contacto" },
 ];
 
-
 // ---------------------------------------------------------------- Servicios
 
 export type ServiceGroup = { title: string; items: readonly string[] };
 export type ServiceArea = { title: string; text: string };
+/** Bloque destacado de cada servicio: título corto y lista que se lee de corrido. */
+export type ServiceCallout = { title: string; items: readonly string[] };
 
 export type ServiceV2 = {
   slug: "ingenieria" | "inspeccion-qaqc" | "gestion-de-proyectos" | "outsourcing";
@@ -152,82 +153,60 @@ export type ServiceV2 = {
   /** Texto de apoyo, debajo de la frase. */
   body: string;
   image: Img;
+  /** Único botón de cada bloque. */
   cta: { label: string; href: string };
-  /** Enlace a Proyectos (solo los servicios que tienen proyectos visibles). */
-  projectsLink?: { label: string; href: string };
+  callout: ServiceCallout;
 };
 
+const consultar = { label: "Consultar", href: "#contacto" } as const;
+
 export const ingenieria: ServiceV2 & {
-  works: readonly string[];
-  deliverables: string;
   items: readonly string[];
-  developments: { title: string; items: readonly string[] };
 } = {
   slug: "ingenieria",
   anchor: "ingenieria",
   n: "01",
   title: "Ingeniería",
-  lead: "Soluciones de ingeniería para proyectos industriales, desde las etapas conceptuales hasta la ingeniería de detalle y la documentación para fabricación y montaje.",
-  body: "Combinamos cálculo, diseño, modelado y experiencia de campo para generar soluciones técnicamente confiables, ejecutables y alineadas con las normas y especificaciones de cada cliente.",
+  lead: "Soluciones de ingeniería para proyectos industriales, desde la etapa conceptual hasta el detalle y la documentación para fabricación y montaje.",
+  body: "Combinamos cálculo, diseño, modelado y experiencia de campo, alineados con las normas y especificaciones de cada cliente.",
   image: { src: "/images/ingenieria.webp", alt: "Vista aérea de una planta industrial" },
-  cta: { label: "Consultar por ingeniería", href: "#contacto" },
-  projectsLink: { label: "Ver proyectos de ingeniería", href: "#proyectos" },
-  works: [
-    "Estructuras metálicas",
-    "Equipos de proceso",
-    "Piping",
-    "Recipientes a presión",
-    "Tanques",
-    "Skids",
-    "Redes de incendio",
-    "Sistemas industriales",
-  ],
-  deliverables:
-    "Memorias de cálculo, planos de conjunto y detalle, modelos 3D, análisis estructurales y documentación técnica asociada.",
+  cta: consultar,
   items: [
-    "Ingeniería conceptual, básica y de detalle",
-    "Diseño y cálculo de estructuras metálicas",
-    "Diseño de equipos de proceso y piping",
+    "Ingeniería conceptual, básica y de detalle, también para revamping y modificaciones",
+    "Estructuras metálicas, equipos de proceso, piping y redes de incendio",
     "Stress analysis de cañerías",
-    "Diseño de recipientes a presión según ASME",
-    "Diseño de tanques según API",
-    "Desarrollo de skids y paquetes de proceso",
-    "Ingeniería para revamping y modificaciones",
-    "Planos para fabricación y montaje",
-    "Relevamientos e ingeniería de adecuación",
+    "Recipientes a presión según ASME y tanques según API",
+    "Skids y paquetes de proceso: separación, medición, inyección química, bombeo y compresión",
+    "Trampas de scraper, cuadros de regulación, intercambiadores y aeroenfriadores",
   ],
-  developments: {
-    title: "Desarrollos",
+  callout: {
+    title: "Entregables",
     items: [
-      "Trampas de scraper",
-      "Cuadros de regulación",
-      "Skids de separación, medición, inyección química, bombeo y compresión",
-      "Recipientes",
-      "Intercambiadores",
-      "Aeroenfriadores",
-      "Tanques",
+      "Memorias de cálculo",
+      "Planos de conjunto y detalle",
+      "Modelos 3D",
+      "Análisis estructurales",
+      "Documentación técnica",
     ],
   },
 };
 
 export const inspeccion: ServiceV2 & {
   groups: readonly ServiceGroup[];
-  highlight: { title: string; text: string };
 } = {
   slug: "inspeccion-qaqc",
   anchor: "inspeccion-qaqc",
   n: "02",
   title: "Inspección & QA/QC",
-  lead: "Inspección, control y aseguramiento de calidad para verificar que materiales, equipos, estructuras, soldaduras y procesos cumplan con los requisitos técnicos y normativos aplicables.",
-  body: "Participamos desde el control durante la fabricación hasta las inspecciones en campo, la recepción de materiales, las pruebas, las liberaciones y el seguimiento documental.",
+  lead: "Inspección, control y aseguramiento de calidad para verificar que materiales, equipos, estructuras y soldaduras cumplan los requisitos técnicos y normativos.",
+  body: "Desde el control durante la fabricación hasta las inspecciones en campo, la recepción de materiales, las pruebas y las liberaciones.",
   // Provisoria: foto de soldadura existente, a reemplazar por fotos reales de QA/QC.
   image: { src: "/images/soldarura.webp", alt: "Soldador trabajando con máscara de protección", provisional: true },
-  cta: { label: "Consultar por inspección", href: "#contacto" },
+  cta: consultar,
   groups: [
     {
       title: "Soldadura y ensayos",
       items: [
-        "Inspección de soldaduras",
         "Inspección visual",
         "Ultrasonido",
         "Líquidos penetrantes",
@@ -237,27 +216,22 @@ export const inspeccion: ServiceV2 & {
     },
     {
       title: "Equipos y estructuras",
-      items: [
-        "Control dimensional",
-        "Inspección de tanques",
-        "Inspección de equipos a presión",
-        "Seguimiento de fabricación",
-      ],
+      items: ["Control dimensional", "Tanques y equipos a presión", "Seguimiento de fabricación"],
     },
     {
       title: "Pruebas y documentación",
       items: [
-        "Pruebas de hermeticidad",
-        "Inspección de pruebas hidráulicas y neumáticas",
+        "Hermeticidad",
+        "Pruebas hidráulicas y neumáticas",
         "FAT / SAT",
-        "Control de documentación y trazabilidad",
-        "Elaboración y seguimiento de reportes de inspección",
+        "Reportes de inspección",
+        "Trazabilidad documental",
       ],
     },
   ],
-  highlight: {
+  callout: {
     title: "WPS, PQR y WPQ",
-    text: "En soldadura ofrecemos servicios vinculados con WPS, PQR y WPQ, evaluación de soldadores y revisión de procedimientos, con personal calificado para tareas de inspección.",
+    items: ["Procedimientos y calificaciones de soldadura", "Evaluación de soldadores", "Personal calificado"],
   },
 };
 
@@ -267,80 +241,74 @@ export const gestion: ServiceV2 & { areas: readonly ServiceArea[] } = {
   n: "03",
   title: "Gestión de proyectos",
   lead: "Gestión integral de proyectos industriales, desde la planificación inicial hasta la ejecución, el montaje y la puesta en marcha.",
-  body: "Adaptamos nuestra participación al alcance de cada proyecto, con foco en el cumplimiento de plazos, calidad, seguridad y objetivos contractuales.",
+  body: "Adaptamos nuestra participación al alcance de cada proyecto.",
   image: {
     src: "/images/proyectos/reacondicionamiento-hrsg8/01.webp",
     alt: "Obra de reacondicionamiento del HRSG 8 en Central Costanera",
   },
-  cta: { label: "Consultar por gestión de proyectos", href: "#contacto" },
-  projectsLink: { label: "Ver proyectos de gestión", href: "#proyectos" },
+  cta: consultar,
   areas: [
     {
-      title: "Planificación y programación",
-      text: "Definimos etapas, secuencias, recursos y cronogramas, y hacemos seguimiento periódico de avances para anticipar interferencias y decidir con información actualizada.",
+      title: "Planificación y seguimiento",
+      text: "Etapas, recursos y cronogramas, con control de avances, hitos y desvíos para decidir con información actualizada.",
     },
     {
-      title: "Project management y coordinación interdisciplinaria",
-      text: "Coordinamos aspectos técnicos, contractuales y operativos, y actuamos como nexo entre ingeniería, construcción, inspección, contratistas y cliente.",
+      title: "Coordinación interdisciplinaria",
+      text: "Nexo entre ingeniería, construcción, inspección, contratistas y cliente en lo técnico, contractual y operativo.",
     },
     {
       title: "Dirección y supervisión de obra",
-      text: "Dirección, supervisión y jefatura de obras mecánicas y electromecánicas, desde la etapa inicial hasta la puesta en servicio, con asistencia técnica permanente en campo.",
-    },
-    {
-      title: "Control y seguimiento de avances",
-      text: "Control físico y técnico de los trabajos: avance, hitos, desvíos, acciones correctivas e informes periódicos.",
+      text: "Obras mecánicas y electromecánicas, desde el inicio hasta la puesta en servicio, con asistencia técnica en campo.",
     },
     {
       title: "Gestión documental",
-      text: "Control de planos y revisiones, consultas y respuestas, informes y actas, y documentación final de obra, con trazabilidad en cada etapa.",
+      text: "Planos y revisiones, consultas, informes, actas y documentación final de obra, con trazabilidad.",
     },
     {
-      title: "Calidad, desvíos y asistencia en campo",
-      text: "Seguimiento de no conformidades y acciones correctivas, más visitas técnicas y relevamientos para ajustar la ingeniería a las condiciones reales de obra.",
+      title: "Calidad y desvíos",
+      text: "No conformidades y acciones correctivas, y relevamientos para ajustar la ingeniería a la obra real.",
     },
   ],
+  callout: {
+    title: "Foco",
+    items: ["Plazos", "Calidad", "Seguridad", "Objetivos contractuales"],
+  },
 };
 
 export const outsourcing: ServiceV2 & {
   steps: readonly ServiceArea[];
-  advantages: readonly ServiceArea[];
-  closing: string;
 } = {
   slug: "outsourcing",
   anchor: "outsourcing",
   n: "04",
   title: "Outsourcing profesional administrado",
   lead: "Incorporamos profesionales a tu equipo de trabajo.",
-  body: "Brindamos servicios de outsourcing profesional para empresas que necesitan incorporar personal calificado a sus proyectos y operaciones, sin ampliar su estructura permanente.",
+  body: "Personal calificado para tus proyectos y operaciones, sin ampliar tu estructura permanente.",
   // Provisoria: el flyer del cliente no se usa. Se reemplaza por una foto limpia cuando llegue.
   image: { src: "/images/construcciones.webp", alt: "Estructura industrial en construcción", provisional: true },
-  cta: { label: "Consultar por outsourcing", href: "#contacto" },
+  cta: consultar,
   steps: [
     {
       title: "Conocemos la necesidad",
-      text: "Partimos de las necesidades del cliente y de las características del puesto a cubrir.",
+      text: "Partimos de lo que necesita el cliente y de las características del puesto a cubrir.",
     },
     {
       title: "Buscamos y evaluamos",
-      text: "Búsqueda de candidatos, entrevistas y evaluación de antecedentes, conocimientos técnicos, experiencia y habilidades profesionales.",
+      text: "Búsqueda, entrevistas y evaluación de antecedentes, conocimientos técnicos y experiencia.",
     },
     {
       title: "Incorporamos y acompañamos",
-      text: "Coordinamos la incorporación, asumimos la gestión administrativa y contractual, y mantenemos el seguimiento durante el servicio.",
+      text: "Coordinamos la incorporación y mantenemos el seguimiento durante todo el servicio.",
     },
   ],
-  advantages: [
-    { title: "Personal calificado", text: "Selección de profesionales según los requisitos de cada posición." },
-    { title: "Flexibilidad", text: "Contratación según las necesidades y la duración de cada proyecto." },
-    {
-      title: "Menor carga administrativa",
-      text: "SURIEL se ocupa de la contratación y la administración del personal asignado.",
-    },
-    { title: "Optimización de tiempos", text: "Simplificamos la búsqueda, la evaluación y la incorporación." },
-    { title: "Acompañamiento", text: "Mantenemos contacto con el cliente y el profesional durante la prestación." },
-  ],
-  closing: "Una solución adaptada a cada empresa, para necesidades puntuales o para períodos prolongados.",
+  callout: {
+    title: "Ventajas",
+    items: [
+      "Selección según cada posición",
+      "Contratación flexible según la duración del proyecto",
+      "SURIEL se ocupa de la administración del personal",
+    ],
+  },
 };
 
 export const servicesV2 = [ingenieria, inspeccion, gestion, outsourcing] as const;

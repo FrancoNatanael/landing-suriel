@@ -1,3 +1,4 @@
+import { Callout } from "@/components/ui/Callout";
 import { NumberedList, NumberedRow } from "@/components/ui/NumberedList";
 import { gestion } from "@/content/es";
 import { ServiceBlock } from "./ServiceBlock";
@@ -15,6 +16,7 @@ export function Gestion() {
           ))}
         </NumberedList>
       </div>
+      <Callout callout={gestion.callout} tone="light" />
     </ServiceBlock>
   );
 }

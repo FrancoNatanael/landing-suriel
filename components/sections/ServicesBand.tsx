@@ -40,7 +40,7 @@ export function ServicesBand() {
             <li key={service.slug} className="border-b border-white/28 lg:border-b-0 lg:border-l lg:first:border-l-0">
               <a
                 href={`#${service.anchor}`}
-                className="group flex h-full flex-col justify-between gap-8 py-6 transition-colors duration-300 hover:bg-white/8 focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-white md:py-8 lg:px-6 lg:first:pl-0"
+                className="group flex h-full flex-col justify-between gap-8 px-5 py-6 transition-colors duration-300 hover:bg-white/8 focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-white md:px-6 md:py-8"
               >
                 <span className="text-xs font-semibold leading-body text-navy-soft">[{service.n}]</span>
                 <span className="flex items-end justify-between gap-4 text-xl font-semibold leading-subheading md:text-2xl">
