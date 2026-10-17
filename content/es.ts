@@ -56,32 +56,6 @@ export const about = {
   image: { src: "/images/nosotros.webp", alt: "Personal de SURIEL en una planta industrial" },
 } as const;
 
-export const sectors = {
-  eyebrow: "Industrias",
-  title: "Plantas de seis sectores industriales.",
-  intro:
-    "Conocemos las exigencias de cada rubro: normas, tiempos de parada y modos de operar.",
-  thumbLabel: "foto sector",
-  items: [
-    "Oil & Gas",
-    "Energía",
-    "Centrales eléctricas",
-    "Química",
-    "Siderurgia",
-    "Alimenticia",
-  ],
-  // Misma posición que items; "" = sin foto (se muestra placeholder)
-  thumbs: [
-    "/images/hero-image.webp",
-    "/images/energia.webp",
-    "/images/central-electrica.webp",
-    "/images/quimica.webp",
-    "/images/siderurgia.webp",
-    "/images/alimenticia.webp",
-  ],
-  link: { label: "Ver proyectos →", href: "#proyectos" },
-} as const;
-
 export type Case = {
   tag: string;
   title: string;
@@ -189,7 +163,6 @@ export const contactSection = {
     message: "Motivo de la consulta",
     industry: "Industria",
     industryDefault: "Opcional",
-    industryOther: "Otra",
     channel: "Canal preferido",
     channelOptions: ["WhatsApp", "Teléfono", "Mail"],
     window: "Ventana horaria para responder",

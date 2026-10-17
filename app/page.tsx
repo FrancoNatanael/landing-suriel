@@ -6,7 +6,7 @@ import { RevealObserver } from "@/components/layout/RevealObserver";
 import { WhatsAppFloat } from "@/components/layout/WhatsAppFloat";
 import { About } from "@/components/sections/About";
 import { Projects } from "@/components/sections/Projects";
-import { Sectors } from "@/components/sections/Sectors";
+import { Industrias } from "@/components/sections/Industrias";
 import { Gestion } from "@/components/sections/Gestion";
 import { Ingenieria } from "@/components/sections/Ingenieria";
 import { Inspeccion } from "@/components/sections/Inspeccion";
@@ -47,7 +47,7 @@ export default function Home() {
         <Inspeccion />
         <Gestion />
         <Outsourcing />
-        <Sectors />
+        <Industrias />
         <Projects />
         <Contact />
       </main>

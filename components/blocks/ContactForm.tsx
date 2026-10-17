@@ -4,7 +4,8 @@ import { useState } from "react";
 import { Placeholder } from "@/components/ui/Placeholder";
 import { buttonClasses } from "@/components/ui/Button";
 import { formCc, formEndpoint, formRecipient, formSubject } from "@/content/contact";
-import { contactSection, sectors } from "@/content/es";
+import { contactSection } from "@/content/es";
+import { industriesV2 } from "@/content/v2";
 import { cn } from "@/lib/utils";
 
 const f = contactSection.form;
@@ -146,12 +147,11 @@ export function ContactForm() {
         <Field label={f.industry} name="industry">
           <select id="industry" name="industry" defaultValue="" className={control}>
             <option value="">{f.industryDefault}</option>
-            {sectors.items.map((name) => (
+            {industriesV2.items.map(({ name }) => (
               <option key={name} value={name}>
                 {name}
               </option>
             ))}
-            <option value={f.industryOther}>{f.industryOther}</option>
           </select>
         </Field>
         <Field label={f.channel} name="channel">
