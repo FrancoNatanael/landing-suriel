@@ -43,7 +43,6 @@ function Field({
 
 export function ContactForm() {
   const [sent, setSent] = useState(false);
-  const [error, setError] = useState(false);
   const [sending, setSending] = useState(false);
   const [failed, setFailed] = useState(false);
 
@@ -52,12 +51,6 @@ export function ContactForm() {
     if (sending) return;
     const data = new FormData(e.currentTarget);
     const email = String(data.get("email") ?? "").trim();
-    const phone = String(data.get("phone") ?? "").trim();
-    if (!email && !phone) {
-      setError(true);
-      return;
-    }
-    setError(false);
     setFailed(false);
 
     // Campo trampa para bots: si viene completo, se simula el éxito sin enviar.
@@ -134,8 +127,8 @@ export function ContactForm() {
         <Field label={f.company} name="company" required>
           <input id="company" name="company" type="text" required autoComplete="organization" className={control} />
         </Field>
-        <Field label={f.email} name="email">
-          <input id="email" name="email" type="email" autoComplete="email" className={control} />
+        <Field label={f.email} name="email" required>
+          <input id="email" name="email" type="email" required autoComplete="email" className={control} />
         </Field>
         <Field label={f.phone} name="phone">
           <input id="phone" name="phone" type="tel" autoComplete="tel" className={control} />
@@ -174,12 +167,6 @@ export function ContactForm() {
           </select>
         </Field>
       </div>
-
-      {error ? (
-        <p role="alert" className="mt-6 text-base leading-body text-danger">
-          {f.errorContact}
-        </p>
-      ) : null}
 
       {failed ? (
         <p role="alert" className="mt-6 text-base leading-body text-danger">
