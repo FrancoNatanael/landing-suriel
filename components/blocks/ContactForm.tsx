@@ -1,7 +1,6 @@
 "use client";
 
-import { useState } from "react";
-import { Placeholder } from "@/components/ui/Placeholder";
+import { useEffect, useState } from "react";
 import { buttonClasses } from "@/components/ui/Button";
 import { formCc, formEndpoint, formRecipient, formSubject } from "@/content/contact";
 import { contactSection, industriesV2 } from "@/content/es";
@@ -46,16 +45,26 @@ export function ContactForm() {
   const [sending, setSending] = useState(false);
   const [failed, setFailed] = useState(false);
 
+  // El aviso de éxito se oculta solo al minuto.
+  useEffect(() => {
+    if (!sent) return;
+    const timer = setTimeout(() => setSent(false), 60_000);
+    return () => clearTimeout(timer);
+  }, [sent]);
+
   async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     if (sending) return;
-    const data = new FormData(e.currentTarget);
+    const form = e.currentTarget;
+    const data = new FormData(form);
     const email = String(data.get("email") ?? "").trim();
     setFailed(false);
+    setSent(false);
 
     // Campo trampa para bots: si viene completo, se simula el éxito sin enviar.
     if (String(data.get("_honey") ?? "")) {
       setSent(true);
+      form.reset();
       return;
     }
 
@@ -85,26 +94,12 @@ export function ContactForm() {
         throw new Error("send failed");
       }
       setSent(true);
+      form.reset();
     } catch {
       setFailed(true);
     } finally {
       setSending(false);
     }
-  }
-
-  if (sent) {
-    return (
-      <div className="animate-fade-in border border-white bg-white p-6 lg:p-10">
-        <p className="text-3xl font-bold leading-heading text-navy md:text-4xl">
-          {f.successTitle}
-        </p>
-        <p className="mt-4 text-base leading-body text-body">
-          {f.successBefore}
-          <Placeholder variant="token">{f.successToken}</Placeholder>
-          {f.successAfter}
-        </p>
-      </div>
-    );
   }
 
   return (
@@ -167,6 +162,12 @@ export function ContactForm() {
           </select>
         </Field>
       </div>
+
+      {sent ? (
+        <p role="status" className="mt-6 text-base leading-body text-navy">
+          <span className="font-bold">{f.successTitle}</span>
+        </p>
+      ) : null}
 
       {failed ? (
         <p role="alert" className="mt-6 text-base leading-body text-danger">
