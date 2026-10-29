@@ -424,11 +424,10 @@ export const outsourcing: ServiceV2 & {
   title: "Outsourcing Profesional",
   lead: "Incorporamos profesionales técnicos a tu equipo de trabajo.",
   body: "Ingenieros, analistas, planificadores, programadores, proyectistas y project managers para tus proyectos y operaciones, sin ampliar tu estructura permanente.",
-  // Provisoria: no refleja el perfil profesional (ingenieros, analistas, planificadores). A reemplazar por una foto
-  // de profesionales en oficina o planta, sin texto ni logo superpuesto.
+  // Banner del cliente (trae logo y el texto "Outsorcing", con una "u" de menos): se muestra entero, sin recorte.
   image: {
     src: "/images/outsourcing-equipo.webp",
-    alt: "Equipo de trabajadores con casco y chaleco sobre el armado de acero de una obra",
+    alt: "Cuatro profesionales con cascos y chalecos revisan planos y una notebook, frente a una planta industrial. Banner: Outsourcing Profesional Administrado, selección, contratación y gestión de profesionales para tu equipo",
     provisional: true,
   },
   cta: consultar,
