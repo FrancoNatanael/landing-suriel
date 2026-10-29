@@ -1,9 +1,8 @@
 import { FabricacionSlider } from "@/components/blocks/FabricacionSlider";
-import { Callout } from "@/components/ui/Callout";
 import { fabricacion } from "@/content/es";
 import { ServiceBlock } from "./ServiceBlock";
 
-/** Fabricación y montaje: grupos de trabajo, industrias y galería de trabajos. */
+/** Fabricación y montaje: texto del Word del cliente completo, con slider de trabajos. */
 export function Fabricacion() {
   return (
     <ServiceBlock
@@ -12,21 +11,21 @@ export function Fabricacion() {
       flip
       media={<FabricacionSlider images={fabricacion.gallery} label={fabricacion.galleryLabel} />}
     >
-      <div className="grid gap-8 md:grid-cols-2">
-        {fabricacion.groups.map((group) => (
-          <div key={group.title}>
-            <p className="mb-4 text-xs font-semibold uppercase leading-body text-navy-soft">{group.title}</p>
-            <ul className="flex flex-col gap-2 border-t border-white/28 pt-4 text-base leading-body text-white">
-              {group.items.map((item) => (
-                <li key={item} className="first-letter:uppercase">
-                  {item}
-                </li>
+      {fabricacion.sections.map((section) => (
+        <div key={section.title}>
+          <p className="mb-4 text-xs font-semibold uppercase leading-body text-navy-soft">{section.title}</p>
+          <div className="flex flex-col gap-4 border-t border-white/28 pt-4 text-base leading-body text-white">
+            <p>{section.intro}</p>
+            {section.listIntro ? <p>{section.listIntro}</p> : null}
+            <ul className="flex flex-col gap-2 pl-5 [&>li]:list-disc [&>li]:marker:text-navy-soft">
+              {section.items.map((item) => (
+                <li key={item}>{item}</li>
               ))}
             </ul>
+            {section.outro ? <p>{section.outro}</p> : null}
           </div>
-        ))}
-      </div>
-      <Callout callout={fabricacion.callout} tone="dark" />
+        </div>
+      ))}
     </ServiceBlock>
   );
 }

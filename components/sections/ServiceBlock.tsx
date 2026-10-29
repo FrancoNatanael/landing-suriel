@@ -1,12 +1,13 @@
 import { ButtonLink } from "@/components/ui/Button";
 import { LabeledGrid } from "@/components/ui/LabeledGrid";
 import { PhotoFrame } from "@/components/ui/PhotoFrame";
+import { Brand } from "@/components/ui/Brand";
 import { Statement } from "@/components/ui/Statement";
 import type { ServiceV2 } from "@/content/es";
 import { cn } from "@/lib/utils";
 
 type ServiceBlockProps = {
-  service: ServiceV2;
+  service: Omit<ServiceV2, "callout">;
   tone?: "light" | "dark";
   /** Foto a la derecha en escritorio (para alternar el ritmo). */
   flip?: boolean;
@@ -33,10 +34,10 @@ export function ServiceBlock({ service, tone = "light", flip = false, media, chi
       <div className="mx-auto max-w-360">
         <LabeledGrid label={`${service.n} · ${service.title}`} tone={tone} className="reveal">
           <Statement as="h2" size="md" tone={tone}>
-            {service.lead}
+            <Brand text={service.lead} />
           </Statement>
           <p className={cn("mt-6 max-w-3xl text-base leading-body", dark ? "text-navy-soft" : "text-body")}>
-            {service.body}
+            <Brand text={service.body} />
           </p>
         </LabeledGrid>
 

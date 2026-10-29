@@ -362,8 +362,19 @@ const FAB_ALTS = [
   "Demolición y reposición de material refractario, etapa 4",
 ] as const;
 
-export const fabricacion: ServiceV2 & {
-  groups: readonly ServiceGroup[];
+/** Texto del Word del cliente (FAB, MONT, MANT.docx), sin resumir. */
+export type FabricacionSection = {
+  title: string;
+  intro: string;
+  /** Frase que introduce la lista. */
+  listIntro?: string;
+  items: readonly string[];
+  /** Cierre debajo de la lista. */
+  outro?: string;
+};
+
+export const fabricacion: Omit<ServiceV2, "callout"> & {
+  sections: readonly FabricacionSection[];
   galleryLabel: string;
   gallery: readonly Img[];
 } = {
@@ -371,46 +382,52 @@ export const fabricacion: ServiceV2 & {
   anchor: "fabricacion",
   n: "04",
   title: "Fabricación y montaje",
-  lead: "Fabricación, montaje y mantenimiento industrial, integrados con la ingeniería y la gestión del proyecto.",
-  body: "Contamos con un equipo de ingenieros, proyectistas, planificadores y Project Managers, y con cañistas, montadores y soldadores calificados, para acompañar cada trabajo desde la ingeniería hasta la fabricación, el montaje, el mantenimiento y las paradas de planta.",
+  lead: "En SURIEL contamos con la experiencia, capacidad técnica y recursos profesionales necesarios para desarrollar proyectos industriales de manera integral, abarcando desde la ingeniería y gestión hasta la fabricación, montaje y ejecución de obras de mantenimiento y paradas de planta.",
+  body: "Disponemos de un equipo multidisciplinario integrado por ingenieros, proyectistas, planificadores y Project Managers, responsables de la planificación, coordinación y gestión de los proyectos, junto con cañistas, montadores y soldadores calificados para la ejecución de los trabajos.",
   image: { src: "/images/fabricacion/03.webp", alt: FAB_ALTS[2] },
   cta: consultar,
-  groups: [
+  sections: [
     {
       title: "Fabricación y montaje",
+      intro: "Desarrollamos trabajos de fabricación y montaje industrial, cumpliendo con los requerimientos técnicos, normativos y de calidad de cada proyecto.",
+      listIntro: "Nuestros principales servicios incluyen:",
       items: [
-        "Estructuras metálicas y soportes industriales",
-        "prefabricado y montaje de spools de cañerías",
-        "redes de incendio y sistemas de piping",
-        "recipientes metálicos y equipos de proceso",
-        "skids y conjuntos industriales",
-        "conductos y sistemas de ventilación industrial",
-        "aislaciones térmicas",
-        "demolición y reposición de materiales refractarios",
+        "Estructuras metálicas y soportes industriales.",
+        "Prefabricado y montaje de spools de cañerías.",
+        "Redes de incendio y sistemas de piping.",
+        "Recipientes metálicos y equipos de proceso.",
+        "Skids y conjuntos industriales.",
+        "Conductos y sistemas de ventilación industrial.",
+        "Aislaciones térmicas.",
+        "Demolición y reposición de materiales refractarios.",
       ],
     },
     {
       title: "Mantenimiento industrial",
+      intro: "Brindamos servicios de mantenimiento, reparación y adecuación de instalaciones industriales, incluyendo intervenciones programadas y paradas de planta, orientadas a preservar la integridad, confiabilidad y continuidad operativa de los equipos.",
+      listIntro: "Nuestros servicios comprenden:",
       items: [
-        "Calderas y equipos térmicos",
-        "sistemas de tuberías y líneas de proceso",
-        "hornos y equipos industriales",
-        "ductos, conductos y chimeneas",
-        "reparaciones, modificaciones y adecuaciones de instalaciones existentes",
+        "Calderas y equipos térmicos.",
+        "Sistemas de tuberías y líneas de proceso.",
+        "Hornos y equipos industriales.",
+        "Ductos, conductos y chimeneas.",
+        "Reparaciones, modificaciones y adecuaciones de instalaciones existentes.",
       ],
     },
+    {
+      title: "Principales industrias",
+      intro: "Brindamos soluciones de fabricación, montaje y mantenimiento para diversos sectores industriales, adaptándonos a sus exigencias técnicas, operativas y de seguridad.",
+      items: [
+        "Oil & Gas.",
+        "Energía y centrales térmicas.",
+        "Industria aceitera y alimenticia.",
+        "Industria automotriz.",
+        "Minería.",
+        "Entre otras industrias.",
+      ],
+      outro: "Integramos ingeniería, gestión y ejecución en campo, ofreciendo soluciones adaptadas a las necesidades de cada proyecto industrial.",
+    },
   ],
-  callout: {
-    title: "Principales industrias",
-    items: [
-      "Oil & Gas",
-      "Energía y centrales térmicas",
-      "Industria aceitera y alimenticia",
-      "Industria automotriz",
-      "Minería",
-      "Entre otras",
-    ],
-  },
   galleryLabel: "Trabajos de fabricación, montaje y mantenimiento",
   gallery: FAB_ALTS.map((alt, i) => ({ src: `/images/fabricacion/${String(i + 1).padStart(2, "0")}.webp`, alt })),
 };
