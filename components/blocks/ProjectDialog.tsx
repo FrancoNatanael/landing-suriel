@@ -3,6 +3,7 @@
 import { useEffect, useRef } from "react";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import type { ProjectV2 } from "@/content/es";
+import { ImagePlaceholder } from "@/components/ui/ImagePlaceholder";
 import { Gallery } from "./Gallery";
 
 type ProjectDialogProps = {
@@ -69,7 +70,11 @@ export function ProjectDialog({ project, initialImage = 0, onClose, labels, clos
           </button>
 
           <div className="mt-12 lg:col-span-7 lg:mt-0">
-            <Gallery key={project.slug} images={project.images} title={project.title} />
+            {project.images.length > 0 ? (
+              <Gallery key={project.slug} images={project.images} title={project.title} />
+            ) : (
+              <ImagePlaceholder label="Imagen pendiente" className="aspect-4/3 w-full" />
+            )}
           </div>
 
           <div className="flex flex-col gap-8 lg:col-span-5 lg:pt-12">
@@ -81,10 +86,12 @@ export function ProjectDialog({ project, initialImage = 0, onClose, labels, clos
             </div>
 
             <dl className="flex flex-col border-t border-line">
-              <div className="border-b border-line py-4">
-                <dt className="text-xs uppercase leading-body text-muted">{labels.client}</dt>
-                <dd className="mt-1 text-base leading-body text-ink">{project.client}</dd>
-              </div>
+              {project.client ? (
+                <div className="border-b border-line py-4">
+                  <dt className="text-xs uppercase leading-body text-muted">{labels.client}</dt>
+                  <dd className="mt-1 text-base leading-body text-ink">{project.client}</dd>
+                </div>
+              ) : null}
               <div className="border-b border-line py-4">
                 <dt className="text-xs uppercase leading-body text-muted">{labels.scope}</dt>
                 <dd className="mt-2">

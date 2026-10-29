@@ -7,16 +7,16 @@ const labels = { steps: "Cómo trabajamos" } as const;
 
 export function Outsourcing() {
   return (
-    <ServiceBlock service={outsourcing} tone="dark" flip>
+    <ServiceBlock service={outsourcing} tone="light" flip>
       <div>
-        <p className="mb-4 text-xs font-semibold uppercase leading-body text-navy-soft">{labels.steps}</p>
-        <NumberedList tone="dark">
+        <p className="mb-4 text-xs font-semibold uppercase leading-body text-muted">{labels.steps}</p>
+        <NumberedList>
           {outsourcing.steps.map((step, i) => (
-            <NumberedRow key={step.title} index={`0${i + 1}`} title={step.title} text={step.text} tone="dark" />
+            <NumberedRow key={step.title} index={`0${i + 1}`} title={step.title} text={step.text} />
           ))}
         </NumberedList>
       </div>
-      <Callout callout={outsourcing.callout} tone="dark" />
+      <Callout callout={outsourcing.callout} tone="light" />
     </ServiceBlock>
   );
 }

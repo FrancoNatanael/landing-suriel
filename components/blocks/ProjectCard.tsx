@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { useRef, useState } from "react";
 import { ArrowIcon } from "@/components/ui/ArrowIcon";
+import { ImagePlaceholder } from "@/components/ui/ImagePlaceholder";
 import type { ProjectV2 } from "@/content/es";
 import { cn } from "@/lib/utils";
 
@@ -55,35 +56,41 @@ export function ProjectCard({ project, index, onOpen, labels }: ProjectCardProps
   return (
     <li className="flex flex-col">
       <div className="group/media relative">
-        <div
-          ref={track}
-          role="region"
-          tabIndex={0}
-          aria-roledescription="carrusel"
-          aria-label={`${labels.region}: ${project.title}`}
-          onScroll={onScroll}
-          onKeyDown={onKeyDown}
-          className="flex snap-x snap-mandatory overflow-x-auto bg-paper focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-navy [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
-        >
-          {images.map((img, i) => (
-            <button
-              key={img.src}
-              type="button"
-              aria-label={`${labels.openImage} ${i + 1}: ${project.title}`}
-              onClick={() => onOpen(i)}
-              className="relative aspect-4/3 w-full shrink-0 snap-center cursor-zoom-in"
-              tabIndex={-1}
-            >
-              <Image
-                src={img.src}
-                alt={img.alt}
-                fill
-                sizes="(min-width: 64rem) 30vw, (min-width: 48rem) 45vw, 100vw"
-                className={fit}
-              />
-            </button>
-          ))}
-        </div>
+        {images.length === 0 ? (
+          <button type="button" aria-label={`${labels.open}: ${project.title}`} onClick={() => onOpen()} className="block aspect-4/3 w-full">
+            <ImagePlaceholder label="Imagen pendiente" className="size-full" />
+          </button>
+        ) : (
+          <div
+            ref={track}
+            role="region"
+            tabIndex={0}
+            aria-roledescription="carrusel"
+            aria-label={`${labels.region}: ${project.title}`}
+            onScroll={onScroll}
+            onKeyDown={onKeyDown}
+            className="flex snap-x snap-mandatory overflow-x-auto bg-paper focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-navy [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+          >
+            {images.map((img, i) => (
+              <button
+                key={img.src}
+                type="button"
+                aria-label={`${labels.openImage} ${i + 1}: ${project.title}`}
+                onClick={() => onOpen(i)}
+                className="relative aspect-4/3 w-full shrink-0 snap-center cursor-zoom-in"
+                tabIndex={-1}
+              >
+                <Image
+                  src={img.src}
+                  alt={img.alt}
+                  fill
+                  sizes="(min-width: 64rem) 30vw, (min-width: 48rem) 45vw, 100vw"
+                  className={fit}
+                />
+              </button>
+            ))}
+          </div>
+        )}
 
         <span className="pointer-events-none absolute top-0 left-0 bg-white px-3 py-1.5 text-xs font-semibold uppercase leading-body text-navy">
           {project.serviceLabel}
@@ -117,7 +124,7 @@ export function ProjectCard({ project, index, onOpen, labels }: ProjectCardProps
       >
         <span className="text-xs font-semibold leading-body text-muted">[{String(index + 1).padStart(2, "0")}]</span>
         <span className="text-xl font-semibold leading-subheading text-heading md:text-2xl">{project.title}</span>
-        <span className="text-base leading-body text-body">{project.client}</span>
+        {project.client ? <span className="text-base leading-body text-body">{project.client}</span> : null}
         {project.highlight ? (
           <span className="text-sm font-semibold leading-body text-navy">{project.highlight}</span>
         ) : null}

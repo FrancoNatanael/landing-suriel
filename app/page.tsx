@@ -8,6 +8,7 @@ import { WhatsAppFloat } from "@/components/layout/WhatsAppFloat";
 import { About } from "@/components/sections/About";
 import { Projects } from "@/components/sections/Projects";
 import { Industrias } from "@/components/sections/Industrias";
+import { Fabricacion } from "@/components/sections/Fabricacion";
 import { Gestion } from "@/components/sections/Gestion";
 import { Ingenieria } from "@/components/sections/Ingenieria";
 import { Inspeccion } from "@/components/sections/Inspeccion";
@@ -61,6 +62,7 @@ export default function Home() {
         <Ingenieria />
         <Inspeccion />
         <Gestion />
+        <Fabricacion />
         <Outsourcing />
         <Industrias />
         <Projects />

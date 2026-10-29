@@ -6,13 +6,13 @@ import { servicesV2 } from "@/content/es";
 
 const band = {
   eyebrow: "Servicios",
-  before: "Cuatro líneas de trabajo, ",
+  before: "Cinco líneas de trabajo, ",
   highlight: "un solo equipo",
   after: ".",
   image: { src: "/images/obras.webp", alt: "Montaje industrial en obra" },
 } as const;
 
-/** Banda de foto a ancho completo: los cuatro nombres de servicio funcionan como anclas. */
+/** Banda de foto a ancho completo: los cinco nombres de servicio funcionan como anclas. */
 export function ServicesBand() {
   return (
     <section id="que-hacemos" aria-labelledby="servicios-titulo" className="relative isolate bg-navy-night text-white">
@@ -35,7 +35,7 @@ export function ServicesBand() {
           </Statement>
         </div>
 
-        <ul className="reveal grid border-t border-white/50 md:grid-cols-2 lg:grid-cols-4">
+        <ul className="reveal grid border-t border-white/50 md:grid-cols-2 lg:grid-cols-5">
           {servicesV2.map((service) => (
             <li key={service.slug} className="border-b border-white/28 lg:border-b-0 lg:border-l lg:first:border-l-0">
               <a

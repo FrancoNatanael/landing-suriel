@@ -129,12 +129,13 @@ export const navDesktop: readonly NavItem[] = [
   { label: "Ingeniería", href: "#ingenieria" },
   { label: "Inspección de obra", href: "#inspeccion-de-obra" },
   { label: "Obras", href: "#obras" },
+  { label: "Fabricación y montaje", href: "#fabricacion" },
   { label: "Outsourcing Profesional", href: "#outsourcing" },
   { label: "Proyectos", href: "#proyectos" },
 ];
 
 /**
- * Menú móvil y footer: las 8 entradas de la arquitectura del cliente, con "Inicio".
+ * Menú móvil y footer: las 9 entradas de la arquitectura del cliente, con "Inicio".
  * Industrias no está en el menú (decisión D2). La barra de escritorio puede mostrar menos.
  */
 export const navFull: readonly NavItem[] = [
@@ -143,6 +144,7 @@ export const navFull: readonly NavItem[] = [
   { label: "Ingeniería", href: "#ingenieria" },
   { label: "Inspección de obra", href: "#inspeccion-de-obra" },
   { label: "Obras", href: "#obras" },
+  { label: "Fabricación y montaje", href: "#fabricacion" },
   { label: "Outsourcing Profesional", href: "#outsourcing" },
   { label: "Proyectos", href: "#proyectos" },
   { label: "Contacto", href: "#contacto" },
@@ -162,7 +164,7 @@ export type ServiceArea = { title: string; text: string };
 export type ServiceCallout = { title: string; items: readonly string[] };
 
 export type ServiceV2 = {
-  slug: "ingenieria" | "inspeccion-de-obra" | "obras" | "outsourcing";
+  slug: "ingenieria" | "inspeccion-de-obra" | "obras" | "fabricacion" | "outsourcing";
   /** Ancla de la sección: coincide con el menú. */
   anchor: string;
   n: string;
@@ -339,12 +341,86 @@ export const gestion: ServiceV2 & { areas: readonly ServiceArea[] } = {
   },
 };
 
+const FAB_ALTS = [
+  "Escalera metálica fabricada en taller",
+  "Planta de procesamiento de gas con estructuras y cañerías",
+  "Trabajos de fabricación y montaje industrial en planta",
+  "Pasarela y estructura metálica industrial",
+  "Modelo 3D de una estructura metálica con cañerías",
+  "Spool de cañería prefabricado",
+  "Montaje de cañerías industriales",
+  "Esquema de distribución de equipos y cañerías",
+  "Trabajo de fabricación industrial",
+  "Reforma de una caldera acuotubular de biomasa",
+  "Trabajos de montaje industrial en altura",
+  "Soldadura a tope de tubos de caldera",
+  "Reparación y modernización de equipos térmicos",
+  "Caldera acuotubular",
+  "Demolición y reposición de material refractario, etapa 1",
+  "Demolición y reposición de material refractario, etapa 2",
+  "Demolición y reposición de material refractario, etapa 3",
+  "Demolición y reposición de material refractario, etapa 4",
+] as const;
+
+export const fabricacion: ServiceV2 & {
+  groups: readonly ServiceGroup[];
+  galleryLabel: string;
+  gallery: readonly Img[];
+} = {
+  slug: "fabricacion",
+  anchor: "fabricacion",
+  n: "04",
+  title: "Fabricación y montaje",
+  lead: "Fabricación, montaje y mantenimiento industrial, integrados con la ingeniería y la gestión del proyecto.",
+  body: "Contamos con un equipo de ingenieros, proyectistas, planificadores y Project Managers, y con cañistas, montadores y soldadores calificados, para acompañar cada trabajo desde la ingeniería hasta la fabricación, el montaje, el mantenimiento y las paradas de planta.",
+  image: { src: "/images/fabricacion/03.webp", alt: FAB_ALTS[2] },
+  cta: consultar,
+  groups: [
+    {
+      title: "Fabricación y montaje",
+      items: [
+        "Estructuras metálicas y soportes industriales",
+        "prefabricado y montaje de spools de cañerías",
+        "redes de incendio y sistemas de piping",
+        "recipientes metálicos y equipos de proceso",
+        "skids y conjuntos industriales",
+        "conductos y sistemas de ventilación industrial",
+        "aislaciones térmicas",
+        "demolición y reposición de materiales refractarios",
+      ],
+    },
+    {
+      title: "Mantenimiento industrial",
+      items: [
+        "Calderas y equipos térmicos",
+        "sistemas de tuberías y líneas de proceso",
+        "hornos y equipos industriales",
+        "ductos, conductos y chimeneas",
+        "reparaciones, modificaciones y adecuaciones de instalaciones existentes",
+      ],
+    },
+  ],
+  callout: {
+    title: "Principales industrias",
+    items: [
+      "Oil & Gas",
+      "Energía y centrales térmicas",
+      "Industria aceitera y alimenticia",
+      "Industria automotriz",
+      "Minería",
+      "Entre otras",
+    ],
+  },
+  galleryLabel: "Trabajos de fabricación, montaje y mantenimiento",
+  gallery: FAB_ALTS.map((alt, i) => ({ src: `/images/fabricacion/${String(i + 1).padStart(2, "0")}.webp`, alt })),
+};
+
 export const outsourcing: ServiceV2 & {
   steps: readonly ServiceArea[];
 } = {
   slug: "outsourcing",
   anchor: "outsourcing",
-  n: "04",
+  n: "05",
   title: "Outsourcing Profesional",
   lead: "Incorporamos profesionales técnicos a tu equipo de trabajo.",
   body: "Ingenieros, analistas, planificadores, programadores, proyectistas y project managers para tus proyectos y operaciones, sin ampliar tu estructura permanente.",
@@ -380,7 +456,7 @@ export const outsourcing: ServiceV2 & {
   },
 };
 
-export const servicesV2 = [ingenieria, inspeccion, gestion, outsourcing] as const;
+export const servicesV2 = [ingenieria, inspeccion, gestion, fabricacion, outsourcing] as const;
 
 // ---------------------------------------------------------------- Industrias
 
@@ -437,7 +513,8 @@ export type ProjectV2 = {
   service: ProjectService;
   serviceLabel: string;
   title: string;
-  client: string;
+  /** Opcional: se omite cuando el cliente todavía no autorizó o no informó el nombre. */
+  client?: string;
   /** Alcance en etiquetas. */
   scope: readonly string[];
   duration?: string;
@@ -473,19 +550,16 @@ export const projectsV2 = {
   labels: { client: "Cliente", scope: "Alcance", duration: "Duración" },
   items: [
     {
-      slug: "percha-izaje",
+      slug: "intercambiador-enfriador-aceite",
       service: "ingenieria",
       serviceLabel: SERVICE_LABEL.ingenieria,
-      title: "Percha de izaje adaptativa, 15 t (verificada para 60 t)",
-      client: "Futura",
-      scope: ["Ingeniería completa", "Memoria de cálculo", "Modelado 3D", "Planos de conjunto y detalle"],
-      highlight: "Verificada para 60 t",
-      images: imgs("percha-izaje", [
-        "Render 3D de la percha de izaje adaptativa, vista isométrica",
-        "Render 3D de la percha de izaje adaptativa, segunda vista isométrica",
-        "Análisis por elementos finitos de la percha: tensiones de von Mises",
-        "Malla de elementos finitos de la percha",
-        "Desplazamientos resultantes del análisis de la percha",
+      title: "Intercambiadores de calor, enfriadores de aceite",
+      scope: ["Ingeniería completa", "Cálculo mecánico y térmico", "Modelado", "Ingeniería de detalle"],
+      images: imgs("intercambiador-enfriador-aceite", [
+        "Isométrico del enfriador de aceite EA442 ABCD",
+        "Render 3D del intercambiador de calor, vista general",
+        "Render 3D del intercambiador de calor, segunda vista",
+        "Render 3D del intercambiador de calor, tercera vista",
       ]),
       visible: true,
     },
@@ -535,6 +609,23 @@ export const projectsV2 = {
       visible: true,
     },
     {
+      slug: "percha-izaje",
+      service: "ingenieria",
+      serviceLabel: SERVICE_LABEL.ingenieria,
+      title: "Percha de izaje adaptativa, 15 t (verificada para 60 t)",
+      client: "Futura",
+      scope: ["Ingeniería completa", "Memoria de cálculo", "Modelado 3D", "Planos de conjunto y detalle"],
+      highlight: "Verificada para 60 t",
+      images: imgs("percha-izaje", [
+        "Render 3D de la percha de izaje adaptativa, vista isométrica",
+        "Render 3D de la percha de izaje adaptativa, segunda vista isométrica",
+        "Análisis por elementos finitos de la percha: tensiones de von Mises",
+        "Malla de elementos finitos de la percha",
+        "Desplazamientos resultantes del análisis de la percha",
+      ]),
+      visible: true,
+    },
+    {
       slug: "ventilacion-plataforma-am6",
       service: "obras",
       serviceLabel: SERVICE_LABEL.obras,
@@ -553,6 +644,11 @@ export const projectsV2 = {
       images: imgs("ventilacion-plataforma-am6", [
         "Ducto de ventilación instalado en la plataforma offshore AM-6",
         "Codo de ducto de ventilación metálico montado en el borde de la plataforma offshore AM-6, con el mar de fondo",
+        "Trabajos de montaje de ductos sobre la plataforma offshore AM-6",
+        "Vista de la plataforma offshore AM-6 durante la obra",
+        "Sector de la plataforma offshore AM-6 con ductos en montaje",
+        "Vista panorámica de la plataforma offshore AM-6",
+        "Personal trabajando en la plataforma offshore AM-6",
       ]),
       visible: true,
     },
@@ -577,10 +673,12 @@ export const projectsV2 = {
         "Operario trabajando sobre una chapa en el interior del HRSG 8",
         "Personal en el interior del HRSG 8 sobre una superficie con pernos soldados",
         "Personal y autoelevador en el interior de la caldera HRSG 8, con andamios y una estructura metálica en montaje",
+        "Trabajos de reacondicionamiento en el interior del HRSG 8",
+        "Equipo de trabajo en la obra del HRSG 8",
       ]),
       visible: true,
     },
-    // Cargados sin mostrar: faltan fotos. Se activan con visible: true cuando lleguen.
+    // QA/QC: sin fotos todavía. Se muestran con portada provisoria hasta que el cliente las envíe.
     {
       slug: "valvulas-central-costanera",
       service: "inspeccion",
@@ -590,7 +688,7 @@ export const projectsV2 = {
       scope: ["Control de calidad (QA/QC)"],
       duration: "30 días",
       images: [],
-      visible: false,
+      visible: true,
     },
     {
       slug: "pote-prefusion-canning",
@@ -601,7 +699,7 @@ export const projectsV2 = {
       scope: ["Control de calidad (QA/QC)", "Ensayos no destructivos"],
       duration: "12 meses",
       images: [],
-      visible: false,
+      visible: true,
     },
   ] satisfies readonly ProjectV2[],
 } as const;
