@@ -1,4 +1,4 @@
-import Image from "next/image";
+import { FabricacionSlider } from "@/components/blocks/FabricacionSlider";
 import { Callout } from "@/components/ui/Callout";
 import { fabricacion } from "@/content/es";
 import { ServiceBlock } from "./ServiceBlock";
@@ -6,7 +6,12 @@ import { ServiceBlock } from "./ServiceBlock";
 /** Fabricación y montaje: grupos de trabajo, industrias y galería de trabajos. */
 export function Fabricacion() {
   return (
-    <ServiceBlock service={fabricacion} tone="dark" flip>
+    <ServiceBlock
+      service={fabricacion}
+      tone="dark"
+      flip
+      media={<FabricacionSlider images={fabricacion.gallery} label={fabricacion.galleryLabel} />}
+    >
       <div className="grid gap-8 md:grid-cols-2">
         {fabricacion.groups.map((group) => (
           <div key={group.title}>
@@ -22,16 +27,6 @@ export function Fabricacion() {
         ))}
       </div>
       <Callout callout={fabricacion.callout} tone="dark" />
-      <div>
-        <p className="mb-4 text-xs font-semibold uppercase leading-body text-navy-soft">{fabricacion.galleryLabel}</p>
-        <ul className="grid grid-cols-3 gap-2 sm:grid-cols-4 md:gap-3">
-          {fabricacion.gallery.map((img) => (
-            <li key={img.src} className="relative aspect-square overflow-hidden bg-navy">
-              <Image src={img.src} alt={img.alt} fill sizes="(min-width: 64rem) 12vw, 25vw" className="object-cover" />
-            </li>
-          ))}
-        </ul>
-      </div>
     </ServiceBlock>
   );
 }

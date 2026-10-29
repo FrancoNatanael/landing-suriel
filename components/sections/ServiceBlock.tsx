@@ -10,6 +10,8 @@ type ServiceBlockProps = {
   tone?: "light" | "dark";
   /** Foto a la derecha en escritorio (para alternar el ritmo). */
   flip?: boolean;
+  /** Reemplaza la foto fija (por ejemplo, por un slider). */
+  media?: React.ReactNode;
   /** Contenido propio del servicio: listas, grupos, bloque destacado. */
   children: React.ReactNode;
 };
@@ -18,7 +20,7 @@ type ServiceBlockProps = {
  * Bloque de servicio: etiqueta con número, frase de apertura, texto de apoyo, foto,
  * contenido propio y CTA. Se alterna claro y oscuro.
  */
-export function ServiceBlock({ service, tone = "light", flip = false, children }: ServiceBlockProps) {
+export function ServiceBlock({ service, tone = "light", flip = false, media, children }: ServiceBlockProps) {
   const dark = tone === "dark";
   return (
     <section
@@ -40,12 +42,14 @@ export function ServiceBlock({ service, tone = "light", flip = false, children }
 
         <div className="mt-12 grid gap-10 md:mt-16 lg:grid-cols-12 lg:gap-x-8">
           <div className={cn("reveal lg:col-span-5", flip && "lg:order-2 lg:col-start-8")}>
-            <PhotoFrame
-              src={service.image.src}
-              alt={service.image.alt}
-              sizes="(min-width: 64rem) 40vw, 100vw"
-              className="aspect-4/3 lg:sticky lg:top-28 lg:aspect-4/5"
-            />
+            {media ?? (
+              <PhotoFrame
+                src={service.image.src}
+                alt={service.image.alt}
+                sizes="(min-width: 64rem) 40vw, 100vw"
+                className="aspect-4/3 lg:sticky lg:top-28 lg:aspect-4/5"
+              />
+            )}
           </div>
 
           <div className={cn("reveal flex flex-col gap-10 lg:col-span-7", flip ? "lg:order-1 lg:col-start-1" : "lg:col-start-6")}>
