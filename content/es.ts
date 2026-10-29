@@ -78,7 +78,7 @@ export const contactSection = {
   eyebrow: "Contacto",
   title: "Contanos qué necesitás.",
   intro:
-    "Contanos tu proyecto y lo analizamos con nuestro equipo de ingeniería.",
+    "Tu proyecto, con el respaldo de nuestro equipo de ingeniería. Escribinos.",
   form: {
     name: "Nombre",
     company: "Empresa",
