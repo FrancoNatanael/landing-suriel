@@ -168,6 +168,9 @@ const consultar = { label: "Consultar", href: "#contacto" } as const;
 
 export const ingenieria: ServiceV2 & {
   items: readonly string[];
+  /** Equipos, paquetizados, estructuras y tanques que se diseñan (presentación institucional). */
+  equipmentLabel: string;
+  equipment: readonly ServiceGroup[];
 } = {
   slug: "ingenieria",
   anchor: "ingenieria",
@@ -184,6 +187,47 @@ export const ingenieria: ServiceV2 & {
     "Recipientes a presión según ASME y tanques según API",
     "Skids y paquetes de proceso: separación, medición, inyección química, bombeo y compresión",
     "Trampas de scraper, cuadros de regulación, intercambiadores y aeroenfriadores",
+  ],
+  equipmentLabel: "Qué diseñamos",
+  equipment: [
+    {
+      title: "Equipos",
+      items: [
+        "Trampas de scraper",
+        "slug catchers",
+        "calentadores indirectos",
+        "freewaters (FWKO)",
+        "aeroenfriadores",
+        "hornos de hot-oil",
+        "knock out drum (KOD)",
+        "recipientes a presión (ASME)",
+        "intercambiadores de calor",
+        "separadores de polvo y líquido",
+        "torres de proceso",
+      ],
+    },
+    {
+      title: "Paquetizados",
+      items: [
+        "Cuadros de regulación",
+        "skids de separación y medición",
+        "skids de inyección química",
+        "skids de bombeo",
+        "skids de compresión",
+        "skid de filtrado",
+        "plantas de tratamiento de efluentes",
+        "cuadros de distribución de vapor",
+        "planta de tratamiento de combustibles",
+      ],
+    },
+    {
+      title: "Estructuras metálicas",
+      items: ["Parrales", "sendas", "bastidores", "soportes"],
+    },
+    {
+      title: "Tanques",
+      items: ["Tanques de almacenamiento (API 650)", "tanques acumuladores RCI", "cisternas y cámaras"],
+    },
   ],
   callout: {
     title: "Entregables",
@@ -271,6 +315,10 @@ export const gestion: ServiceV2 & { areas: readonly ServiceArea[] } = {
       title: "Calidad y desvíos",
       text: "No conformidades y acciones correctivas, y relevamientos para ajustar la ingeniería a la obra real.",
     },
+    {
+      title: "Control de gestión",
+      text: "Seguimiento y control de costos, plazos, recursos, productividad y avances físicos de proyectos industriales, mediante indicadores de desempeño, análisis de desvíos y reportes de gestión, facilitando la toma de decisiones y el cumplimiento de los objetivos del proyecto.",
+    },
   ],
   callout: {
     title: "Foco",
@@ -285,18 +333,24 @@ export const outsourcing: ServiceV2 & {
   anchor: "outsourcing",
   n: "04",
   title: "Outsourcing Profesional",
-  lead: "Incorporamos profesionales a tu equipo de trabajo.",
-  body: "Personal calificado para tus proyectos y operaciones, sin ampliar tu estructura permanente.",
-  image: { src: "/images/outsourcing-equipo.webp", alt: "Equipo de trabajadores con casco y chaleco sobre el armado de acero de una obra" },
+  lead: "Incorporamos profesionales técnicos a tu equipo de trabajo.",
+  body: "Ingenieros, analistas, planificadores, programadores, proyectistas y project managers para tus proyectos y operaciones, sin ampliar tu estructura permanente.",
+  // Provisoria: no refleja el perfil profesional (ingenieros, analistas, planificadores). A reemplazar por una foto
+  // de profesionales en oficina o planta, sin texto ni logo superpuesto.
+  image: {
+    src: "/images/outsourcing-equipo.webp",
+    alt: "Equipo de trabajadores con casco y chaleco sobre el armado de acero de una obra",
+    provisional: true,
+  },
   cta: consultar,
   steps: [
     {
       title: "Conocemos la necesidad",
-      text: "Partimos de lo que necesita el cliente y de las características del puesto a cubrir.",
+      text: "Partimos de lo que necesita el cliente y del perfil profesional a cubrir.",
     },
     {
       title: "Buscamos y evaluamos",
-      text: "Búsqueda, entrevistas y evaluación de antecedentes, conocimientos técnicos y experiencia.",
+      text: "Búsqueda, entrevistas y evaluación de antecedentes, formación técnica y experiencia en proyectos.",
     },
     {
       title: "Incorporamos y acompañamos",

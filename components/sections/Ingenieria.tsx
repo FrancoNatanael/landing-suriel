@@ -17,6 +17,17 @@ export function Ingenieria() {
           ))}
         </ul>
       </div>
+      <div>
+        <p className="mb-4 text-xs font-semibold uppercase leading-body text-muted">{ingenieria.equipmentLabel}</p>
+        <ul className="grid border-t border-line md:grid-cols-2 md:gap-x-8">
+          {ingenieria.equipment.map((group) => (
+            <li key={group.title} className="flex flex-col gap-2 border-b border-line py-5">
+              <h3 className="text-xl font-semibold leading-subheading text-heading">{group.title}</h3>
+              <p className="text-base leading-body text-body">{group.items.join(", ")}</p>
+            </li>
+          ))}
+        </ul>
+      </div>
       <Callout callout={ingenieria.callout} tone="light" />
     </ServiceBlock>
   );
