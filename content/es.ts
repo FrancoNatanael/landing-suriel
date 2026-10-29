@@ -426,7 +426,7 @@ export const outsourcing: ServiceV2 & {
   body: "Ingenieros, analistas, planificadores, programadores, proyectistas y project managers para tus proyectos y operaciones, sin ampliar tu estructura permanente.",
   image: {
     src: "/images/outsourcing-equipo.webp",
-    alt: "Manos de dos profesionales revisando planos sobre una mesa de trabajo",
+    alt: "Cuatro profesionales con cascos y chalecos revisan planos y una notebook frente a una planta industrial",
   },
   cta: consultar,
   steps: [
