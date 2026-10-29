@@ -57,8 +57,6 @@ const MANIFEST = [
   job("proyectos/trampas-scraper-pecom/02.webp", `${PECOM}/ST01301A - ISO2.png`),
   job("proyectos/trampas-scraper-pecom/03.webp", `${PECOM}/ST01301A - FRENTE1.png`),
   job("proyectos/trampas-scraper-pecom/04.webp", `${PECOM}/ST01301A - LATERAL1.png`),
-  // Outsourcing Profesional (foto del cliente, trae logo y banner superpuestos)
-  job("outsourcing-equipo.webp", "SERVICIOS/SERVICIOS/OUTSOURSING/IMAGEN OUTSOURSING.jpeg"),
   // Ingeniería · intercambiadores de calor, enfriadores de aceite
   job("proyectos/intercambiador-enfriador-aceite/01.webp", `${INTERCAMBIADOR}/EA442ABCD - ISO1.png`),
   job("proyectos/intercambiador-enfriador-aceite/02.webp", `${INTERCAMBIADOR}/int 3.png`),
