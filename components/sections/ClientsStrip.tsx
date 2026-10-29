@@ -2,6 +2,8 @@ import Image from "next/image";
 import { Brand } from "@/components/ui/Brand";
 import { clients } from "@/content/es";
 
+const SECONDS_PER_LOGO = 6;
+
 export function ClientsStrip() {
   return (
     <section
@@ -14,7 +16,11 @@ export function ClientsStrip() {
         </p>
 
         <div className="mask-marquee min-w-0 flex-1 overflow-hidden motion-reduce:overflow-x-auto motion-reduce:[mask-image:none]">
-          <div className="flex w-max animate-marquee motion-reduce:animate-none">
+          <div
+            className="flex w-max animate-marquee motion-reduce:animate-none"
+            // Misma velocidad con cualquier cantidad de logos: 6 s por logo.
+            style={{ animationDuration: `${clients.logos.length * SECONDS_PER_LOGO}s` }}
+          >
             {[0, 1, 2, 3].map((group) => (
               <ul
                 key={group}
