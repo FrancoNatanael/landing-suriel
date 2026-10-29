@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { Brand } from "@/components/ui/Brand";
 import { clients } from "@/content/es";
 
 export function ClientsStrip() {
@@ -9,7 +10,7 @@ export function ClientsStrip() {
     >
       <div className="reveal mx-auto flex max-w-360 flex-col gap-6 lg:flex-row lg:items-center lg:gap-12">
         <p className="shrink-0 text-base font-medium leading-body text-heading lg:w-58">
-          {clients.label}
+          <Brand text={clients.label} />
         </p>
 
         <div className="mask-marquee min-w-0 flex-1 overflow-hidden motion-reduce:overflow-x-auto motion-reduce:[mask-image:none]">

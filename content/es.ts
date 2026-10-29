@@ -49,7 +49,7 @@ export const about = {
       "Trabajamos para las industrias Oil & Gas, energía, petroquímica, siderúrgica, alimenticia y de procesos, combinando ingeniería, experiencia de campo y conocimiento normativo para desarrollar soluciones técnicamente confiables y ejecutables.",
     ],
     [
-      "En Suriel entendemos que un proyecto no termina con la emisión de documentación.",
+      "En SURIEL entendemos que un proyecto no termina con la emisión de documentación.",
       "Por eso acompañamos a nuestros clientes durante las etapas de fabricación, montaje y construcción, brindando soporte técnico, resolución de interferencias, seguimiento de fabricación y asistencia en campo, manteniendo una comunicación directa durante todo el desarrollo del proyecto.",
     ],
   ],
@@ -65,7 +65,7 @@ export const contactSection = {
   eyebrow: "Contacto",
   title: "Contanos qué necesitás.",
   intro:
-    "Contanos tu proyecto y te respondemos con alguien que pueda resolverlo.",
+    "Contanos tu proyecto y lo analizamos con nuestro equipo de ingeniería.",
   form: {
     name: "Nombre",
     company: "Empresa",
@@ -114,9 +114,9 @@ export type NavItem = { label: string; href: string };
 /** Barra de escritorio: el logo hace de "Inicio" (decisión D3). */
 export const navDesktop: readonly NavItem[] = [
   { label: "Ingeniería", href: "#ingenieria" },
-  { label: "Inspección & QA/QC", href: "#inspeccion-qaqc" },
-  { label: "Gestión de proyectos", href: "#gestion-de-proyectos" },
-  { label: "Outsourcing", href: "#outsourcing" },
+  { label: "Inspección de obra", href: "#inspeccion-de-obra" },
+  { label: "Obras", href: "#obras" },
+  { label: "Outsourcing Profesional", href: "#outsourcing" },
   { label: "Proyectos", href: "#proyectos" },
 ];
 
@@ -128,9 +128,9 @@ export const navFull: readonly NavItem[] = [
   { label: "Inicio", href: "#inicio" },
   { label: "Nosotros", href: "#nosotros" },
   { label: "Ingeniería", href: "#ingenieria" },
-  { label: "Inspección & QA/QC", href: "#inspeccion-qaqc" },
-  { label: "Gestión de proyectos", href: "#gestion-de-proyectos" },
-  { label: "Outsourcing", href: "#outsourcing" },
+  { label: "Inspección de obra", href: "#inspeccion-de-obra" },
+  { label: "Obras", href: "#obras" },
+  { label: "Outsourcing Profesional", href: "#outsourcing" },
   { label: "Proyectos", href: "#proyectos" },
   { label: "Contacto", href: "#contacto" },
 ];
@@ -149,7 +149,7 @@ export type ServiceArea = { title: string; text: string };
 export type ServiceCallout = { title: string; items: readonly string[] };
 
 export type ServiceV2 = {
-  slug: "ingenieria" | "inspeccion-qaqc" | "gestion-de-proyectos" | "outsourcing";
+  slug: "ingenieria" | "inspeccion-de-obra" | "obras" | "outsourcing";
   /** Ancla de la sección: coincide con el menú. */
   anchor: string;
   n: string;
@@ -200,11 +200,11 @@ export const ingenieria: ServiceV2 & {
 export const inspeccion: ServiceV2 & {
   groups: readonly ServiceGroup[];
 } = {
-  slug: "inspeccion-qaqc",
-  anchor: "inspeccion-qaqc",
+  slug: "inspeccion-de-obra",
+  anchor: "inspeccion-de-obra",
   n: "02",
-  title: "Inspección & QA/QC",
-  lead: "Inspección, control y aseguramiento de calidad para verificar que materiales, equipos, estructuras y soldaduras cumplan los requisitos técnicos y normativos.",
+  title: "Inspección de obra",
+  lead: "Inspección, control y aseguramiento de calidad (QA/QC) para verificar que materiales, equipos, estructuras y soldaduras cumplan los requisitos técnicos y normativos.",
   body: "Desde el control durante la fabricación hasta las inspecciones en campo, la recepción de materiales, las pruebas y las liberaciones.",
   // Provisoria: foto de soldadura existente, a reemplazar por fotos reales de QA/QC.
   image: { src: "/images/soldarura.webp", alt: "Soldador trabajando con máscara de protección", provisional: true },
@@ -214,24 +214,24 @@ export const inspeccion: ServiceV2 & {
       title: "Soldadura y ensayos",
       items: [
         "Inspección visual",
-        "Ultrasonido",
-        "Líquidos penetrantes",
-        "Partículas magnetizables",
-        "Medición de espesores",
+        "ultrasonido",
+        "líquidos penetrantes",
+        "partículas magnetizables",
+        "medición de espesores",
       ],
     },
     {
       title: "Equipos y estructuras",
-      items: ["Control dimensional", "Tanques y equipos a presión", "Seguimiento de fabricación"],
+      items: ["Control dimensional", "tanques y equipos a presión", "seguimiento de fabricación"],
     },
     {
       title: "Pruebas y documentación",
       items: [
         "Hermeticidad",
-        "Pruebas hidráulicas y neumáticas",
+        "pruebas hidráulicas y neumáticas",
         "FAT / SAT",
-        "Reportes de inspección",
-        "Trazabilidad documental",
+        "reportes de inspección",
+        "trazabilidad documental",
       ],
     },
   ],
@@ -242,10 +242,10 @@ export const inspeccion: ServiceV2 & {
 };
 
 export const gestion: ServiceV2 & { areas: readonly ServiceArea[] } = {
-  slug: "gestion-de-proyectos",
-  anchor: "gestion-de-proyectos",
+  slug: "obras",
+  anchor: "obras",
   n: "03",
-  title: "Gestión de proyectos",
+  title: "Obras",
   lead: "Gestión integral de proyectos industriales, desde la planificación inicial hasta la ejecución, el montaje y la puesta en marcha.",
   body: "Adaptamos nuestra participación al alcance de cada proyecto.",
   image: { src: "/images/obras.webp", alt: "Estructuras metálicas y cañerías aisladas en una planta industrial" },
@@ -284,7 +284,7 @@ export const outsourcing: ServiceV2 & {
   slug: "outsourcing",
   anchor: "outsourcing",
   n: "04",
-  title: "Outsourcing profesional administrado",
+  title: "Outsourcing Profesional",
   lead: "Incorporamos profesionales a tu equipo de trabajo.",
   body: "Personal calificado para tus proyectos y operaciones, sin ampliar tu estructura permanente.",
   image: { src: "/images/outsourcing-equipo.webp", alt: "Equipo de trabajadores con casco y chaleco sobre el armado de acero de una obra" },
@@ -363,7 +363,7 @@ export const industriesV2 = {
 
 // ---------------------------------------------------------------- Proyectos
 
-export type ProjectService = "ingenieria" | "gestion-de-proyectos" | "qaqc";
+export type ProjectService = "ingenieria" | "obras" | "inspeccion";
 
 export type ProjectV2 = {
   slug: string;
@@ -385,8 +385,8 @@ export type ProjectV2 = {
 // No hay Ubicación ni Sector: ningún documento del cliente los trae (decisión D9).
 const SERVICE_LABEL: Record<ProjectService, string> = {
   ingenieria: "Ingeniería",
-  "gestion-de-proyectos": "Gestión de proyectos",
-  qaqc: "Inspección & QA/QC",
+  obras: "Obras",
+  inspeccion: "Inspección de obra",
 };
 
 const imgs = (slug: string, alts: readonly string[]): Img[] =>
@@ -402,7 +402,7 @@ const FULL_ENGINEERING = [
 export const projectsV2 = {
   eyebrow: "Proyectos",
   title: "Trabajos realizados.",
-  intro: "Proyectos de ingeniería y de gestión en plantas industriales.",
+  intro: "Proyectos de ingeniería, obras e inspección en plantas industriales.",
   labels: { client: "Cliente", scope: "Alcance", duration: "Duración" },
   items: [
     {
@@ -469,8 +469,8 @@ export const projectsV2 = {
     },
     {
       slug: "ventilacion-plataforma-am6",
-      service: "gestion-de-proyectos",
-      serviceLabel: SERVICE_LABEL["gestion-de-proyectos"],
+      service: "obras",
+      serviceLabel: SERVICE_LABEL.obras,
       title: "Adecuación del sistema de ventilación de la sala de generación, plataforma offshore AM-6 (Área Magallanes)",
       client: "IMC, ENAP Sipetrol",
       scope: [
@@ -491,8 +491,8 @@ export const projectsV2 = {
     },
     {
       slug: "reacondicionamiento-hrsg8",
-      service: "gestion-de-proyectos",
-      serviceLabel: SERVICE_LABEL["gestion-de-proyectos"],
+      service: "obras",
+      serviceLabel: SERVICE_LABEL.obras,
       title: "Reacondicionamiento de HRSG 8 MHI, Central Costanera (MAPRO 2025)",
       client: "Grupo MTR, Central Costanera, Central Puerto",
       scope: [
@@ -516,8 +516,8 @@ export const projectsV2 = {
     // Cargados sin mostrar: faltan fotos. Se activan con visible: true cuando lleguen.
     {
       slug: "valvulas-central-costanera",
-      service: "qaqc",
-      serviceLabel: SERVICE_LABEL.qaqc,
+      service: "inspeccion",
+      serviceLabel: SERVICE_LABEL.inspeccion,
       title: "Reemplazo de válvulas de alta, media y baja presión",
       client: "Combumont, Central Costanera, Central Puerto",
       scope: ["Control de calidad (QA/QC)"],
@@ -527,8 +527,8 @@ export const projectsV2 = {
     },
     {
       slug: "pote-prefusion-canning",
-      service: "qaqc",
-      serviceLabel: SERVICE_LABEL.qaqc,
+      service: "inspeccion",
+      serviceLabel: SERVICE_LABEL.inspeccion,
       title: "Montaje de pote de prefusión y sistema de carga, Planta Canning",
       client: "Semeniuk, Ternium (Siderar)",
       scope: ["Control de calidad (QA/QC)", "Ensayos no destructivos"],

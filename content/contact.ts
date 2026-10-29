@@ -9,6 +9,7 @@ export const contact = {
   linkedin: "https://www.linkedin.com/company/suriel-ingenier%C3%ADa-y-servicios/",
   linkedinLabel: "SURIEL Ingeniería y Servicios",
   whatsapp: "5491163672440",
+  address: "Canning, Ezeiza, Buenos Aires, Argentina",
 } as const;
 
 export function whatsappHref(message: string) {
@@ -19,7 +20,8 @@ export type Channel = {
   label: string;
   icon: ChannelIconName;
   value: string;
-  href: string;
+  /** Sin href, el canal se muestra como texto (la ubicación). */
+  href?: string;
   external?: boolean;
 };
 
@@ -27,6 +29,7 @@ export const channels: readonly Channel[] = [
   { label: "Teléfono", icon: "phone", value: contact.phone, href: contact.phoneHref },
   { label: "Mail", icon: "mail", value: contact.email, href: `mailto:${contact.email}` },
   { label: "LinkedIn", icon: "linkedin", value: contact.linkedinLabel, href: contact.linkedin, external: true },
+  { label: "Ubicación", icon: "pin", value: contact.address },
 ];
 
 // Destino de las consultas del formulario (FormSubmit). Se define en .env.local (o en las

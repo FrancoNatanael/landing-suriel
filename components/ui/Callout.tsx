@@ -1,5 +1,6 @@
 import type { ServiceCallout } from "@/content/es";
 import { cn } from "@/lib/utils";
+import { Brand } from "./Brand";
 import { Eyebrow } from "./Eyebrow";
 
 /** Bloque destacado de cada servicio: eyebrow con cuadrado y lista que se lee de corrido. */
@@ -25,7 +26,9 @@ export function Callout({
         )}
       >
         {callout.items.map((item) => (
-          <li key={item}>{item}</li>
+          <li key={item}>
+            <Brand text={item} />
+          </li>
         ))}
       </ul>
     </div>

@@ -5,6 +5,7 @@ import { Statement } from "@/components/ui/Statement";
 import { Value } from "@/components/ui/Value";
 import { channels } from "@/content/contact";
 import { contactSection } from "@/content/es";
+import { cn } from "@/lib/utils";
 
 export function Contact() {
   return (
@@ -29,13 +30,9 @@ export function Contact() {
         </div>
 
         <ul className="reveal self-start border-t border-white/50 lg:col-span-3 lg:col-start-1 lg:row-start-2">
-          {channels.map((channel) => (
-            <li key={channel.label} className="border-b border-white/28">
-              <a
-                href={channel.href}
-                {...(channel.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
-                className="flex flex-col gap-1 py-4 text-white hover:underline focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-white"
-              >
+          {channels.map((channel) => {
+            const content = (
+              <>
                 <span className="flex items-center gap-3 text-xs font-semibold uppercase leading-body text-navy-soft">
                   <ChannelIcon name={channel.icon} className="size-5 shrink-0" />
                   {channel.label}
@@ -43,9 +40,28 @@ export function Contact() {
                 <span className="text-base leading-body break-words">
                   <Value text={channel.value} />
                 </span>
-              </a>
-            </li>
-          ))}
+              </>
+            );
+            const row = "flex flex-col gap-1 py-4 text-white";
+            return (
+              <li key={channel.label} className="border-b border-white/28">
+                {channel.href ? (
+                  <a
+                    href={channel.href}
+                    {...(channel.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+                    className={cn(
+                      row,
+                      "hover:underline focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-white",
+                    )}
+                  >
+                    {content}
+                  </a>
+                ) : (
+                  <div className={row}>{content}</div>
+                )}
+              </li>
+            );
+          })}
         </ul>
       </div>
     </section>

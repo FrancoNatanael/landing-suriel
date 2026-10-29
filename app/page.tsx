@@ -27,6 +27,12 @@ const organizationJsonLd = {
   foundingDate: site.foundingDate,
   email: contact.email,
   telephone: "+5491163672440",
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Canning, Ezeiza",
+    addressRegion: "Buenos Aires",
+    addressCountry: "AR",
+  },
   sameAs: [contact.linkedin],
   hasOfferCatalog: {
     "@type": "OfferCatalog",

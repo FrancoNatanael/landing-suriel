@@ -1,3 +1,4 @@
+import { Brand } from "@/components/ui/Brand";
 import { ChannelIcon } from "@/components/ui/ChannelIcon";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { Value } from "@/components/ui/Value";
@@ -48,28 +49,40 @@ export function Footer() {
               {footer.contactLabel}
             </Eyebrow>
             <ul className="border-t border-white/50">
-              {channels.map((channel) => (
-                <li key={channel.label} className="border-b border-white/28">
-                  <a
-                    href={channel.href}
-                    {...(channel.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
-                    className={`flex items-center justify-between gap-6 py-3 text-base leading-body text-white ${link}`}
-                  >
-                    <span className="flex items-center gap-3 text-navy-soft">
+              {channels.map((channel) => {
+                const content = (
+                  <>
+                    <span className="flex shrink-0 items-center gap-3 text-navy-soft">
                       <ChannelIcon name={channel.icon} className="size-5 shrink-0" />
                       {channel.label}
                     </span>
-                    <span>
+                    <span className="text-right">
                       <Value text={channel.value} />
                     </span>
-                  </a>
-                </li>
-              ))}
+                  </>
+                );
+                const row = "flex items-center justify-between gap-6 py-3 text-base leading-body text-white";
+                return (
+                  <li key={channel.label} className="border-b border-white/28">
+                    {channel.href ? (
+                      <a
+                        href={channel.href}
+                        {...(channel.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+                        className={`${row} ${link}`}
+                      >
+                        {content}
+                      </a>
+                    ) : (
+                      <div className={row}>{content}</div>
+                    )}
+                  </li>
+                );
+              })}
             </ul>
           </div>
         </div>
 
-        <p className="py-8 text-sm leading-body text-navy-soft">{footer.copyright}</p>
+        <p className="py-8 text-sm leading-body text-navy-soft"><Brand text={footer.copyright} /></p>
       </div>
     </footer>
   );

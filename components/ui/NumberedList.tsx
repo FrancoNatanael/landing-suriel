@@ -32,7 +32,7 @@ type NumberedRowProps = {
 
 /**
  * Fila numerada: [01], nombre, texto y miniatura opcional, separada por una línea fina.
- * Se usa en Industrias, en las áreas de Gestión de proyectos y en las ventajas de Outsourcing.
+ * Se usa en Industrias, en las áreas de Obras y en las ventajas de Outsourcing.
  */
 export function NumberedRow({ index, title, text, tags, media, tone = "light", className }: NumberedRowProps) {
   const dark = tone === "dark";

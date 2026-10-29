@@ -1,3 +1,4 @@
+import { Brand } from "@/components/ui/Brand";
 import { CrossCell } from "@/components/ui/CrossCell";
 import { LabeledGrid } from "@/components/ui/LabeledGrid";
 import { PhotoFrame } from "@/components/ui/PhotoFrame";
@@ -24,7 +25,7 @@ export function About() {
               <div key={paragraphs[0]} className="flex flex-col gap-6">
                 {paragraphs.map((text) => (
                   <p key={text} className="text-base leading-body text-body">
-                    {text}
+                    <Brand text={text} />
                   </p>
                 ))}
               </div>

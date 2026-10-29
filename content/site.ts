@@ -5,6 +5,6 @@ export const site = {
   name: "SURIEL Ingeniería y Servicios",
   title: "SURIEL | Ingeniería y Servicios",
   description:
-    "Ingeniería aplicada a proyectos industriales: ingeniería, inspección y gestión de proyectos en un solo equipo.",
+    "Ingeniería aplicada a proyectos industriales: ingeniería, inspección de obra (QA/QC), obras y outsourcing profesional en un solo equipo.",
   foundingDate: "2012",
 } as const;
