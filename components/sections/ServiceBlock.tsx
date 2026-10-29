@@ -11,6 +11,8 @@ type ServiceBlockProps = {
   tone?: "light" | "dark";
   /** Foto a la derecha en escritorio (para alternar el ritmo). */
   flip?: boolean;
+  /** Tamaño de la frase de apertura (por defecto "md"). */
+  leadSize?: "md" | "sm";
   /** Reemplaza la foto fija (por ejemplo, por un slider). */
   media?: React.ReactNode;
   /** Contenido propio del servicio: listas, grupos, bloque destacado. */
@@ -21,7 +23,7 @@ type ServiceBlockProps = {
  * Bloque de servicio: etiqueta con número, frase de apertura, texto de apoyo, foto,
  * contenido propio y CTA. Se alterna claro y oscuro.
  */
-export function ServiceBlock({ service, tone = "light", flip = false, media, children }: ServiceBlockProps) {
+export function ServiceBlock({ service, tone = "light", flip = false, leadSize = "md", media, children }: ServiceBlockProps) {
   const dark = tone === "dark";
   return (
     <section
@@ -33,12 +35,16 @@ export function ServiceBlock({ service, tone = "light", flip = false, media, chi
     >
       <div className="mx-auto max-w-360">
         <LabeledGrid label={`${service.n} · ${service.title}`} tone={tone} className="reveal">
-          <Statement as="h2" size="md" tone={tone}>
+          <Statement as="h2" size={leadSize} tone={tone}>
             <Brand text={service.lead} />
           </Statement>
-          <p className={cn("mt-6 max-w-3xl text-base leading-body", dark ? "text-navy-soft" : "text-body")}>
-            <Brand text={service.body} />
-          </p>
+          <div className={cn("mt-6 flex max-w-3xl flex-col gap-4 text-base leading-body", dark ? "text-navy-soft" : "text-body")}>
+            {service.body.split("\n\n").map((paragraph) => (
+              <p key={paragraph}>
+                <Brand text={paragraph} />
+              </p>
+            ))}
+          </div>
         </LabeledGrid>
 
         <div className="mt-12 grid gap-10 md:mt-16 lg:grid-cols-12 lg:gap-x-8">

@@ -55,7 +55,7 @@ export function FabricacionSlider({ images, label }: Props) {
         if (e.key === "ArrowRight") go(index + 1);
         if (e.key === "ArrowLeft") go(index - 1);
       }}
-      className="relative aspect-4/3 overflow-hidden bg-navy focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white lg:sticky lg:top-28 lg:aspect-4/5"
+      className="relative aspect-4/3 overflow-hidden bg-navy focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white lg:sticky lg:top-28"
     >
       {images.map((img, i) => (
         <Image

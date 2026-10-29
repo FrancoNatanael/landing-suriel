@@ -40,7 +40,7 @@ const organizationJsonLd = {
     name: "Servicios",
     itemListElement: servicesV2.map((service) => ({
       "@type": "Offer",
-      itemOffered: { "@type": "Service", name: service.title, description: service.body },
+      itemOffered: { "@type": "Service", name: service.title, description: service.body.replace(/\n\n/g, " ") },
     })),
   },
 };

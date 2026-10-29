@@ -5,8 +5,8 @@ type Tone = "light" | "dark";
 type StatementProps = {
   tone?: Tone;
   as?: "p" | "h2" | "h3";
-  /** "lg" para frases cortas de apertura; "md" para frases largas (bajadas de servicio). */
-  size?: "lg" | "md";
+  /** "lg" para frases cortas de apertura; "md" para frases largas (bajadas de servicio); "sm" para párrafos de apertura extensos. */
+  size?: "lg" | "md" | "sm";
   className?: string;
   children: React.ReactNode;
 };
@@ -19,7 +19,9 @@ export function Statement({ tone = "light", as: Tag = "p", size = "lg", classNam
         "max-w-4xl font-normal leading-statement",
         size === "lg"
           ? "text-2xl md:text-3xl lg:text-4xl xl:text-statement"
-          : "text-xl md:text-2xl lg:text-3xl",
+          : size === "md"
+            ? "text-xl md:text-2xl lg:text-3xl"
+            : "text-lg md:text-xl lg:text-2xl",
         tone === "dark" ? "text-white" : "text-heading",
         className,
       )}
