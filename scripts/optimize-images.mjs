@@ -28,6 +28,7 @@ const PECOM = `${P}/INGENIERIA/TRAMPAS DE SCRAPPER LANZADORA + RECEPTORA - FUTUR
 const OFFSHORE = `${P}/GESTION DE PROYECTOS/PROYECTO EJECUTIVO Y DIRECCION DE MONTAJE - VENTILACION PLATAFORMA OFFSHORE`;
 const HRSG = `${P}/GESTION DE PROYECTOS/PROYECTO EJECUTIVO Y DIRECCIÓN DE OBRA - REACONDICIONAMIENTO HRSG 8 CENTRAL COSTANERA`;
 const INTERCAMBIADOR = `${P}/INGENIERIA/INTERCAMBIADOR DE CALOR - ENFIRADOR DE ACEITE`;
+const QAQC = `${P}/QAQC - CALIDAD`;
 const FAB = "SERVICIOS/SERVICIOS/FABRICACION, MONTAJES MANTENIMIENTI";
 const STOCK = "SERVICIOS/IMAGENES STOCK";
 
@@ -77,6 +78,29 @@ const MANIFEST = [
   job("proyectos/reacondicionamiento-hrsg8/04.webp", `${HRSG}/IMG_20250427_164659.jpg`),
   job("proyectos/reacondicionamiento-hrsg8/05.webp", `${HRSG}/IMG_20250505_151729.jpg`),
   job("proyectos/reacondicionamiento-hrsg8/06.webp", `${HRSG}/images.jfif`),
+  // Inspección de obra · valvulas-central-costanera: fotos del cliente renombradas NN-descripcion
+  job("proyectos/valvulas-central-costanera/01-valvula-sobre-carro-de-traslado.webp", `${QAQC}/SERVICIO DE QAQC  - CENTRAL COSTANERA/FOTOS/01-valvula-sobre-carro-de-traslado.jpg`),
+  job("proyectos/valvulas-central-costanera/02-valvula-suspendida-con-cadenas.webp", `${QAQC}/SERVICIO DE QAQC  - CENTRAL COSTANERA/FOTOS/02-valvula-suspendida-con-cadenas.jpg`),
+  job("proyectos/valvulas-central-costanera/03-valvula-izada-sala-de-maquinas.webp", `${QAQC}/SERVICIO DE QAQC  - CENTRAL COSTANERA/FOTOS/03-valvula-izada-sala-de-maquinas.jpg`),
+  job("proyectos/valvulas-central-costanera/04-ensayo-liquidos-penetrantes-soldadura.webp", `${QAQC}/SERVICIO DE QAQC  - CENTRAL COSTANERA/FOTOS/04-ensayo-liquidos-penetrantes-soldadura.jpg`),
+  job("proyectos/valvulas-central-costanera/05-union-soldada-en-caneria.webp", `${QAQC}/SERVICIO DE QAQC  - CENTRAL COSTANERA/FOTOS/05-union-soldada-en-caneria.jpg`),
+  job("proyectos/valvulas-central-costanera/06-valvula-entre-andamios.webp", `${QAQC}/SERVICIO DE QAQC  - CENTRAL COSTANERA/FOTOS/06-valvula-entre-andamios.jpg`),
+  job("proyectos/valvulas-central-costanera/07-valvula-con-aparejos-de-cadena.webp", `${QAQC}/SERVICIO DE QAQC  - CENTRAL COSTANERA/FOTOS/07-valvula-con-aparejos-de-cadena.jpg`),
+  job("proyectos/valvulas-central-costanera/08-sector-de-trabajo-vista-superior.webp", `${QAQC}/SERVICIO DE QAQC  - CENTRAL COSTANERA/FOTOS/08-sector-de-trabajo-vista-superior.jpg`),
+  job("proyectos/valvulas-central-costanera/09-izaje-de-valvula-con-grua.webp", `${QAQC}/SERVICIO DE QAQC  - CENTRAL COSTANERA/FOTOS/09-izaje-de-valvula-con-grua.jpg`),
+  job("proyectos/valvulas-central-costanera/10-grua-telescopica-en-terraza.webp", `${QAQC}/SERVICIO DE QAQC  - CENTRAL COSTANERA/FOTOS/10-grua-telescopica-en-terraza.jpg`),
+  job("proyectos/valvulas-central-costanera/11-vista-exterior-de-la-central.webp", `${QAQC}/SERVICIO DE QAQC  - CENTRAL COSTANERA/FOTOS/11-vista-exterior-de-la-central.jpg`),
+  // Inspección de obra · pote-prefusion-canning: fotos del cliente renombradas NN-descripcion
+  job("proyectos/pote-prefusion-canning/01-horno-de-induccion-pote-de-prefusion.webp", `${QAQC}/SERVICIO DE QAQC Y END - PLANTA TERNIUM CANNING/fotos/01-horno-de-induccion-pote-de-prefusion.jpg`),
+  job("proyectos/pote-prefusion-canning/02-montaje-en-planta-con-plataforma-elevadora.webp", `${QAQC}/SERVICIO DE QAQC Y END - PLANTA TERNIUM CANNING/fotos/02-montaje-en-planta-con-plataforma-elevadora.jpg`),
+  job("proyectos/pote-prefusion-canning/03-estructura-del-sistema-de-carga.webp", `${QAQC}/SERVICIO DE QAQC Y END - PLANTA TERNIUM CANNING/fotos/03-estructura-del-sistema-de-carga.jpg`),
+  job("proyectos/pote-prefusion-canning/04-canal-del-sistema-de-carga.webp", `${QAQC}/SERVICIO DE QAQC Y END - PLANTA TERNIUM CANNING/fotos/04-canal-del-sistema-de-carga.jpg`),
+  job("proyectos/pote-prefusion-canning/05-izaje-de-columna-con-grua.webp", `${QAQC}/SERVICIO DE QAQC Y END - PLANTA TERNIUM CANNING/fotos/05-izaje-de-columna-con-grua.jpg`),
+  job("proyectos/pote-prefusion-canning/06-montaje-de-columna-con-minigrua.webp", `${QAQC}/SERVICIO DE QAQC Y END - PLANTA TERNIUM CANNING/fotos/06-montaje-de-columna-con-minigrua.jpg`),
+  job("proyectos/pote-prefusion-canning/07-columna-montada.webp", `${QAQC}/SERVICIO DE QAQC Y END - PLANTA TERNIUM CANNING/fotos/07-columna-montada.jpg`),
+  job("proyectos/pote-prefusion-canning/08-estructura-de-soporte-montada.webp", `${QAQC}/SERVICIO DE QAQC Y END - PLANTA TERNIUM CANNING/fotos/08-estructura-de-soporte-montada.jpg`),
+  job("proyectos/pote-prefusion-canning/09-tableros-electricos-de-alta-tension.webp", `${QAQC}/SERVICIO DE QAQC Y END - PLANTA TERNIUM CANNING/fotos/09-tableros-electricos-de-alta-tension.jpg`),
+  job("proyectos/pote-prefusion-canning/10-tablero-de-conexionado.webp", `${QAQC}/SERVICIO DE QAQC Y END - PLANTA TERNIUM CANNING/fotos/10-tablero-de-conexionado.jpg`),
   // Fabricación y montaje · 18 imágenes de la carpeta nueva (varias de baja resolución y origen por confirmar)
   job("fabricacion/01.webp", `${FAB}/fabricacion_de_escaleras_metalicas-scaled.jpg`),
   job("fabricacion/02.webp", `${FAB}/gas-processing-plant-sm.jpg`),

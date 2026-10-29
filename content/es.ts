@@ -550,6 +550,10 @@ const SERVICE_LABEL: Record<ProjectService, string> = {
 const imgs = (slug: string, alts: readonly string[]): Img[] =>
   alts.map((alt, i) => ({ src: `/images/proyectos/${slug}/${String(i + 1).padStart(2, "0")}.webp`, alt }));
 
+/** Imágenes con nombre propio: `NN-descripcion` (sin extensión) y su texto alternativo, en orden. */
+const namedImgs = (slug: string, items: readonly (readonly [string, string])[]): Img[] =>
+  items.map(([file, alt]) => ({ src: `/images/proyectos/${slug}/${file}.webp`, alt }));
+
 const FULL_ENGINEERING = [
   "Ingeniería completa",
   "Memorias de cálculo mecánicas y estructurales",
@@ -692,7 +696,7 @@ export const projectsV2 = {
       ]),
       visible: true,
     },
-    // QA/QC: sin fotos todavía. Se muestran con portada provisoria hasta que el cliente las envíe.
+    // QA/QC: fotos del cliente, nombradas NN-descripcion.
     {
       slug: "valvulas-central-costanera",
       service: "inspeccion",
@@ -701,7 +705,19 @@ export const projectsV2 = {
       client: "Combumont, Central Costanera, Central Puerto",
       scope: ["Control de calidad (QA/QC)"],
       duration: "30 días",
-      images: [],
+      images: namedImgs("valvulas-central-costanera", [
+        ["01-valvula-sobre-carro-de-traslado", "Válvula de gran porte sobre un carro de traslado dentro de la central, con personal acompañando la maniobra"],
+        ["02-valvula-suspendida-con-cadenas", "Válvula suspendida con cadenas y eslingas en la zona de montaje, rodeada de andamios"],
+        ["03-valvula-izada-sala-de-maquinas", "Válvula izada con eslingas sobre su carro de traslado en el interior de la central"],
+        ["04-ensayo-liquidos-penetrantes-soldadura", "Cordón de soldadura en el extremo de una válvula, revelado con líquidos penetrantes"],
+        ["05-union-soldada-en-caneria", "Unión soldada en una cañería de la central"],
+        ["06-valvula-entre-andamios", "Válvula suspendida entre andamios y estructuras durante el montaje"],
+        ["07-valvula-con-aparejos-de-cadena", "Válvula sostenida con aparejos de cadena sobre una plataforma de rejilla"],
+        ["08-sector-de-trabajo-vista-superior", "Vista desde arriba del sector de trabajo, con cañerías, aparejos de cadena y herramientas"],
+        ["09-izaje-de-valvula-con-grua", "Izaje de una válvula con grúa en el exterior de la central, con personal de obra"],
+        ["10-grua-telescopica-en-terraza", "Grúa telescópica operando en una terraza junto al río"],
+        ["11-vista-exterior-de-la-central", "Sector exterior de la central, con la estructura de cañerías y los edificios"],
+      ]),
       visible: true,
     },
     {
@@ -712,7 +728,18 @@ export const projectsV2 = {
       client: "Semeniuk, Ternium (Siderar)",
       scope: ["Control de calidad (QA/QC)", "Ensayos no destructivos"],
       duration: "12 meses",
-      images: [],
+      images: namedImgs("pote-prefusion-canning", [
+        ["01-horno-de-induccion-pote-de-prefusion", "Pote de prefusión del horno de inducción, con su tapa, en la planta"],
+        ["02-montaje-en-planta-con-plataforma-elevadora", "Personal de montaje en la planta, con una plataforma elevadora y el puente grúa"],
+        ["03-estructura-del-sistema-de-carga", "Estructura metálica del sistema de carga durante el montaje"],
+        ["04-canal-del-sistema-de-carga", "Canal metálico del sistema de carga, visto desde un extremo"],
+        ["05-izaje-de-columna-con-grua", "Izaje de una columna metálica con grúa, de noche, dentro de la planta"],
+        ["06-montaje-de-columna-con-minigrua", "Montaje de una columna con una minigrúa y personal de obra en la planta"],
+        ["07-columna-montada", "Columna metálica montada, con una plataforma elevadora al fondo"],
+        ["08-estructura-de-soporte-montada", "Estructura de soporte montada sobre una plataforma, con la planta al fondo"],
+        ["09-tableros-electricos-de-alta-tension", "Tableros eléctricos de alta tensión dentro de un contenedor"],
+        ["10-tablero-de-conexionado", "Interior de un tablero de conexionado, con cables y borneras"],
+      ]),
       visible: true,
     },
   ] satisfies readonly ProjectV2[],
